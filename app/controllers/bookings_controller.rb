@@ -12,6 +12,9 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @booking = Booking.new
+    authorize @booking
+    @counselors = Counselor.all
   end
 
   def create

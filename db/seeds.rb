@@ -38,6 +38,9 @@ user1 = User.create!(
   school: school1
 )
 
+file = URI.open("https://avatars.githubusercontent.com/u/76512208?v=4")
+user1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
 user2 = User.create!(
   first_name: "Karen",
   last_name: 'Fujibayashi',
@@ -47,6 +50,9 @@ user2 = User.create!(
   password: '123456',
   school: school1
 )
+
+file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
+user2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user3 = User.create!(
   first_name: "Vivian Bao",
@@ -58,6 +64,9 @@ user3 = User.create!(
   school: school1
 )
 
+file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
+user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
 user4 = User.create!(
   first_name: "Caio",
   last_name: 'Santos',
@@ -67,6 +76,8 @@ user4 = User.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/87355777?v=4")
+user4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Users created'
 puts 'Creating Counselors........'
@@ -79,6 +90,9 @@ counselor1 = Counselor.create!(
   school: school1
 )
 
+file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
+counselor1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
 counselor2 = Counselor.create!(
   first_name: "Trouni",
   last_name: 'Tiet',
@@ -86,6 +100,9 @@ counselor2 = Counselor.create!(
   password: '123456',
   school: school1
 )
+
+file = URI.open("https://avatars.githubusercontent.com/u/34345789?v=4")
+counselor2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
 puts 'Creating Bookings.........'
@@ -99,8 +116,6 @@ booking1 = Booking.create!(
   rating: 5,
   in_session: false
 )
-
-
 
 booking2 = Booking.create!(
   date: 'Mon, 22 Nov 2021 10:00:00 +0900',
@@ -123,7 +138,6 @@ booking3 = Booking.create!(
 )
 
 puts 'All Booking created'
-
 
 #test for messageable
 

@@ -1,2 +1,25 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<div class="mx-auto my-3" style='width: 500px'><h1>Book a Session</h1></div>
+<%# Counselor, Time, Mode %>
+<div class="form mx-auto" style='width: 500px'>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.association :counselor, label: 'Counselors',
+      as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'category-wrapper d-flex',
+      item_wrapper_class: 'category-counselor mx-3',
+      input_html: {class: 'category-selector'},
+      collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4'), counselor.id ] }
+    %>
+    <%= f.input :date, label: 'Date' %>
+    <%= f.input :mode, label: 'Mode',
+      as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'category-wrapper d-flex',
+      item_wrapper_class: 'category-mode mx-3',
+      input_html: {class: 'category-selector'},
+      # label_html: {class: 'text-dark'},
+      collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
+    %>
+    <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
+  <% end %>
+</div>
