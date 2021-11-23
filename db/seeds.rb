@@ -12,9 +12,9 @@ require 'open-uri'
 require 'json'
 
 puts puts 'Cleaning up database...'
-School.destroy_all
 User.destroy_all
-Councelor.destroy_all
+Counselor.destroy_all
+School.destroy_all
 Booking.destroy_all
 Message.destroy_all
 
@@ -35,7 +35,7 @@ user1 = User.create!(
   phone_number: "080 45454646",
   address: "212-1086, Kinutakoen, Setagaya-ku, Tokyo",
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user2 = User.create!(
@@ -45,7 +45,7 @@ user2 = User.create!(
   phone_number: '080 12344321',
   address: '387-1223, Ichigayakoracho, Shinjuku-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user3 = User.create!(
@@ -55,7 +55,7 @@ user3 = User.create!(
   phone_number: '080 44448888',
   address: '181-1206, Roppongi Roppongihiruzumoritawa(9-kai), Minato-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user4 = User.create!(
@@ -65,38 +65,38 @@ user4 = User.create!(
   phone_number: '080 99991111',
   address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 puts 'Users created'
-puts 'Creating Councelors........'
+puts 'Creating Counselors........'
 
-councelor1 = Councelor.create!(
+counselor1 = Counselor.create!(
   first_name: "Doug",
   last_name: 'Berkley',
   email: 'doug@lewagon.jp',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
-councelor2 = Councelor.create!(
+counselor2 = Counselor.create!(
   first_name: "Trouni",
   last_name: 'Tiet',
   email: 'trouni@lewagon.jp',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
-puts 'Councelors created'
+puts 'Counselors created'
 puts 'Creating Bookings.........'
 
 booking1 = Booking.create!(
   date: 'Mon, 22 Nov 2021 16:12:33 +0900',
-  mode: '1',
-  user_id: user1,
-  conselor_id: councelor1,
+  mode: 1,
+  user: user1,
+  counselor: counselor1,
   note: 'That was a good conversation. He was with some trouble with his girlfriend, but now is everything ok.',
-  rating: '5',
+  rating: 5,
   in_session: false
 )
 
@@ -104,21 +104,21 @@ booking1 = Booking.create!(
 
 booking2 = Booking.create!(
   date: 'Mon, 22 Nov 2021 10:00:00 +0900',
-  mode: '2',
-  user_id: user2,
-  conselor_id: councelor1,
-  note: "She wasn't feeling confident because her friends weren't talking with her, I talked with her and now she is feeling better and She said, she would like to keep talking with some councelor",
-  rating: '4',
+  mode: 2,
+  user: user2,
+  counselor: counselor1,
+  note: "She wasn't feeling confident because her friends weren't talking with her, I talked with her and now she is feeling better and She said, she would like to keep talking with some counselor",
+  rating: 4,
   in_session: false
 )
 
 booking3 = Booking.create!(
   date: 'Tue, 23 Nov 2021 11:00:00 +0900',
-  mode: '1',
-  user_id: user3,
-  conselor_id: councelor2,
+  mode: 1,
+  user: user3,
+  counselor: counselor2,
   note: "It was a really great conversation. She had some issue about her cat passed away. After the talk, it seems fine.",
-  rating: '5',
+  rating: 5,
   in_session: false
 )
 
@@ -132,4 +132,3 @@ puts 'All Booking created'
 # user = User.create(first_name: "Joss")
 # byebug
 # puts 'seeded'
-
