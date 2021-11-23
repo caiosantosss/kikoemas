@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # users #dashboard
   # counselors #dashboard get '/counselor'
   # messages #create
-  resources :bookings, only: [:index, :show, :new, :create, :update]
+  resources :bookings, only: [:index, :show, :new, :create, :update] do
+  resources :messages, only: [:create]
+  end
   get '/dashboard', to: 'users#dashboard', as: :user_dashboard_path
   get '/counselor', to: 'counselors#dashboard', as: :counselor_dashboard_path
-  resources :messages, only: [:create]
 end
