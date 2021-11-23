@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
 require 'open-uri'
 require 'json'
 
@@ -98,6 +100,8 @@ booking1 = Booking.create!(
   in_session: false
 )
 
+
+
 booking2 = Booking.create!(
   date: 'Mon, 22 Nov 2021 10:00:00 +0900',
   mode: '2',
@@ -119,3 +123,13 @@ booking3 = Booking.create!(
 )
 
 puts 'All Booking created'
+
+
+#test for messageable
+
+# booking = Booking.create
+# counselor = Counselor.create(fist_name: "Ryota")
+# user = User.create(first_name: "Joss")
+# byebug
+# puts 'seeded'
+
