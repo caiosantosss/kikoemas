@@ -10,10 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_021427) do
+ActiveRecord::Schema.define(version: 2021_11_23_054420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "date"
+    t.integer "mode", default: 0
+    t.text "note"
+    t.integer "rating"
+    t.boolean "in_session", default: true
+    t.bigint "user_id", null: false
+    t.bigint "counselor_id", null: false
+    t.index ["counselor_id"], name: "index_bookings_on_counselor_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "counselors", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "school_id", null: false
+    t.index ["email"], name: "index_counselors_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_counselors_on_reset_password_token", unique: true
+    t.index ["school_id"], name: "index_counselors_on_school_id"
+  end
+
+  create_table "schools", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +57,18 @@ ActiveRecord::Schema.define(version: 2021_11_23_021427) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number"
+    t.string "address"
+    t.bigint "school_id", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
+  add_foreign_key "bookings", "counselors"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "counselors", "schools"
+  add_foreign_key "users", "schools"
 end

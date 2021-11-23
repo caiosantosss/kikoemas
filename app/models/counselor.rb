@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Counselor < ApplicationRecord
   # Include default devise modules. Others available are:
   belongs_to :school
   has_many :bookings
