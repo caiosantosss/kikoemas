@@ -6,12 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 require 'open-uri'
-require 'json'
 
-puts puts 'Cleaning up database...'
+puts 'Cleaning up database...'
 User.destroy_all
 Counselor.destroy_all
 School.destroy_all
@@ -37,6 +34,8 @@ user1 = User.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/76512208?v=4")
+user1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user2 = User.create!(
   first_name: "Karen",
@@ -47,9 +46,11 @@ user2 = User.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
+user2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user3 = User.create!(
-  first_name: "Vivian Bao",
+  first_name: "Vivian",
   last_name: 'Bao',
   email: 'vivian@lewagon.jp',
   phone_number: '080 44448888',
@@ -57,6 +58,8 @@ user3 = User.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
+user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user4 = User.create!(
   first_name: "Caio",
@@ -67,6 +70,8 @@ user4 = User.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/87355777?v=4")
+user4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Users created'
 puts 'Creating Counselors........'
@@ -78,6 +83,8 @@ counselor1 = Counselor.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
+user5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor2 = Counselor.create!(
   first_name: "Trouni",
@@ -86,13 +93,15 @@ counselor2 = Counselor.create!(
   password: '123456',
   school: school1
 )
+file = URI.open("https://avatars.githubusercontent.com/u/34345789?v=4")
+user5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
 puts 'Creating Bookings.........'
 
 booking1 = Booking.create!(
   date: 'Mon, 22 Nov 2021 16:12:33 +0900',
-  mode: 1,
+  mode: 0,
   user: user1,
   counselor: counselor1,
   note: 'That was a good conversation. He was with some trouble with his girlfriend, but now is everything ok.',
@@ -104,7 +113,7 @@ booking1 = Booking.create!(
 
 booking2 = Booking.create!(
   date: 'Mon, 22 Nov 2021 10:00:00 +0900',
-  mode: 2,
+  mode: 1,
   user: user2,
   counselor: counselor1,
   note: "She wasn't feeling confident because her friends weren't talking with her, I talked with her and now she is feeling better and She said, she would like to keep talking with some counselor",
@@ -114,7 +123,7 @@ booking2 = Booking.create!(
 
 booking3 = Booking.create!(
   date: 'Tue, 23 Nov 2021 11:00:00 +0900',
-  mode: 1,
+  mode: 0,
   user: user3,
   counselor: counselor2,
   note: "It was a really great conversation. She had some issue about her cat passed away. After the talk, it seems fine.",
