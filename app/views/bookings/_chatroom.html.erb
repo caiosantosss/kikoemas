@@ -1,4 +1,5 @@
 <h1>Welcome</h1>
+<%= link_to "End session", '#', class: 'btn btn-warning'  %>
 <div id="messages" data-booking-id="<%= @booking.id %>">
   <% @booking.messages.each do |booking| %>
     <div class="message-container" id="message-<%= @message.id %>">
