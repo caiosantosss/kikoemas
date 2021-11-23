@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
-  get 'bookings/show'
-  get 'bookings/new'
   devise_for :counselors
   devise_for :users
   root to: 'pages#home'
