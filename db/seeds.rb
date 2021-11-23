@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
 require 'open-uri'
 require 'json'
 
@@ -97,3 +99,12 @@ booking1 = Booking.create!(
   rating:
   in_session:
 )
+
+
+#test for messageable
+
+# booking = Booking.create
+# counselor = Counselor.create(fist_name: "Ryota")
+# user = User.create(first_name: "Joss")
+# byebug
+# puts 'seeded'
