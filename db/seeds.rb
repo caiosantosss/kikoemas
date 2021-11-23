@@ -6,13 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
 require 'open-uri'
 require 'json'
 
 puts puts 'Cleaning up database...'
-School.destroy_all
 User.destroy_all
-Councelor.destroy_all
+Counselor.destroy_all
+School.destroy_all
 Booking.destroy_all
 Message.destroy_all
 
@@ -33,7 +35,7 @@ user1 = User.create!(
   phone_number: "080 45454646",
   address: "212-1086, Kinutakoen, Setagaya-ku, Tokyo",
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user2 = User.create!(
@@ -43,7 +45,7 @@ user2 = User.create!(
   phone_number: '080 12344321',
   address: '387-1223, Ichigayakoracho, Shinjuku-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user3 = User.create!(
@@ -53,7 +55,7 @@ user3 = User.create!(
   phone_number: '080 44448888',
   address: '181-1206, Roppongi Roppongihiruzumoritawa(9-kai), Minato-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 user4 = User.create!(
@@ -63,37 +65,70 @@ user4 = User.create!(
   phone_number: '080 99991111',
   address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
 puts 'Users created'
-puts 'Creating Councelors........'
+puts 'Creating Counselors........'
 
-councelor1 = Councelor.create!(
+counselor1 = Counselor.create!(
   first_name: "Doug",
   last_name: 'Berkley',
   email: 'doug@lewagon.jp',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
-councelor2 = Councelor.create!(
+counselor2 = Counselor.create!(
   first_name: "Trouni",
   last_name: 'Tiet',
   email: 'trouni@lewagon.jp',
   password: '123456',
-  school_id: school1
+  school: school1
 )
 
-puts 'Councelors created....'
-puts 'Creating Bookings'
+puts 'Counselors created'
+puts 'Creating Bookings.........'
 
 booking1 = Booking.create!(
-  date:
-  mode:
-  user_id:
-  conselor_id:
-  note:
-  rating:
-  in_session:
+  date: 'Mon, 22 Nov 2021 16:12:33 +0900',
+  mode: 1,
+  user: user1,
+  counselor: counselor1,
+  note: 'That was a good conversation. He was with some trouble with his girlfriend, but now is everything ok.',
+  rating: 5,
+  in_session: false
 )
+
+
+
+booking2 = Booking.create!(
+  date: 'Mon, 22 Nov 2021 10:00:00 +0900',
+  mode: 2,
+  user: user2,
+  counselor: counselor1,
+  note: "She wasn't feeling confident because her friends weren't talking with her, I talked with her and now she is feeling better and She said, she would like to keep talking with some counselor",
+  rating: 4,
+  in_session: false
+)
+
+booking3 = Booking.create!(
+  date: 'Tue, 23 Nov 2021 11:00:00 +0900',
+  mode: 1,
+  user: user3,
+  counselor: counselor2,
+  note: "It was a really great conversation. She had some issue about her cat passed away. After the talk, it seems fine.",
+  rating: 5,
+  in_session: false
+)
+
+puts 'All Booking created'
+
+
+#test for messageable
+
+# booking = Booking.create
+# counselor = Counselor.create(fist_name: "Ryota")
+# user = User.create(first_name: "Joss")
+# byebug
+# puts 'seeded'
