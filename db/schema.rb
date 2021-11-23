@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_073808) do
+ActiveRecord::Schema.define(version: 2021_11_23_090428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_073808) do
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.integer "booking_id"
-    t.integer "messageable_id"
-    t.string "messageable_type"
+    t.integer "sender_id"
+    t.string "sender_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
