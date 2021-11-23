@@ -12,6 +12,9 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @booking = Booking.new
+    @booking.counselor
+    if @booking.save
   end
 
   def update
