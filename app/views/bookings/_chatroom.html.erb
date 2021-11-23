@@ -1,0 +1,16 @@
+<h1>Welcome</h1>
+<div id="messages" data-booking-id="<%= @booking.id %>">
+  <% @booking.messages.each do |booking| %>
+    <div class="message-container" id="message-<%= @message.id %>">
+      <i class="author">
+        <span><%= booking.sender.first_name %></span>
+        <small><%= booking.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      </i>
+      <p><%= booking.content %></p>
+    </div>
+  <% end %>
+</div>
+<%= simple_form_for [ @booking, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Aa" %>
+  <%= f.submit  %>
+<% end %>
