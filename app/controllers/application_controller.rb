@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user_or_counselor!
-    authenticate_user! || authenticate_counselor!
+    user_signed_in? || counselor_signed_in?
     # unless user_signed_in? || counselor_signed_in?
     #   raise AuthorizationException.new
     # end
