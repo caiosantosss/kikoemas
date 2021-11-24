@@ -34,4 +34,8 @@ class ApplicationController < ActionController::Base
       root_path
     end
   end
+
+  def pundit_user
+    current_counselor || current_user
+  end
 end
