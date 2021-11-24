@@ -6,7 +6,6 @@
     <%= f.hidden_field :emergency, value: true, as: :boolean %>
     <%= f.button :submit, 'Chatroom', class: 'btn btn-primary mx-2' %>
   <% end %>
-
   <%= simple_form_for @booking do |f|  %>
     <%= f.hidden_field :mode, value: 1 %>
     <%= f.hidden_field :in_session, value: true %>
@@ -14,5 +13,4 @@
     <%= f.button :submit, 'Video call', class: 'btn btn-primary mx-2' %>
   <% end %>
 </div>
-
 <%= render 'shared/footer' %>
