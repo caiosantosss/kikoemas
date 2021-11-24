@@ -1,3 +1,9 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
-<%= render 'chatroom' %>
+<% if @booking.in_session == true %>
+  <%= render 'chatroom' %>
+<% elsif @booking.in_session == false %>
+  <% if current_user %>
+    <%= render 'rating' %>
+  <% else %>
+    <%= render 'rating' %>
+  <% end %>
+<% end %>
