@@ -108,7 +108,8 @@ puts 'Counselors created'
 puts 'Creating Bookings.........'
 
 booking1 = Booking.create!(
-  date: 'Mon, 22 Nov 2021 16:12:33 +0900',
+  start_time: Time.now + 2.days,
+  end_time: Time.now + 1*60*60,
   mode: 1,
   user: user1,
   counselor: counselor1,
@@ -118,7 +119,8 @@ booking1 = Booking.create!(
 )
 
 booking2 = Booking.create!(
-  date: 'Mon, 22 Nov 2021 10:00:00 +0900',
+  start_time: Time.now + 3.days,
+  end_time: Time.now + 1*60*60,
   mode: 2,
   user: user2,
   counselor: counselor1,
@@ -128,7 +130,8 @@ booking2 = Booking.create!(
 )
 
 booking3 = Booking.create!(
-  date: 'Tue, 23 Nov 2021 11:00:00 +0900',
+  start_time: Time.now + 4.days,
+  end_time: Time.now + 1*60*60,
   mode: 1,
   user: user3,
   counselor: counselor2,
