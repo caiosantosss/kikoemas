@@ -1,0 +1,31 @@
+<h2>The session has ended.</h2>
+<div class="student_rating text-center">
+  <h2>Student's rating</h2>
+  <% if @booking.rating.present? %>
+    <% if @booking.rating == 1 || @booking.rating == 2 %>
+      <p><%= @booking.user.first_name %> <%= @booking.user.first_name %> is still not feeling well.</p>
+    <% elsif @booking.rating == 3 || @booking.rating == 4 %>
+      <p><%= @booking.user.first_name %> <%= @booking.user.first_name %> is feeling a little well now.</p>
+    <% elsif @booking.rating ==  5%>
+      <p><%= @booking.user.first_name %> <%= @booking.user.first_name %> is really feeling better.</p>
+    <% end %>
+  <% end %>
+  <p>Student's rating is <%= @booking.rating %>/ 5.</p>
+</div>
+<div class="user_pic col-xs-2 col-sm-3 col-lg-3 text-center">
+  <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+  <p><%= @booking.user.first_name %> <%= @booking.user.first_name %> </p>
+</div>
+<%# <div class="note-btn">
+  <%= link_to "Add a note", "", class: "btn btn-ghost" %>
+<p>
+  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Add a note
+  </a>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <%= render "note" %>
+  </div>
+</div>
+</div>

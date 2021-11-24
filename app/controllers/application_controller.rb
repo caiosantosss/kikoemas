@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
     else
       root_path
     end
+
   end
 
   def pundit_user
