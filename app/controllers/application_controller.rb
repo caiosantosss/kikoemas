@@ -30,8 +30,13 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     if user.is_a?(Counselor)
       counselor_dashboard_path
+      # raise
     else
       root_path
     end
+  end
+
+  def pundit_user
+    current_counselor || current_user
   end
 end
