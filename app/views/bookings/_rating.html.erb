@@ -1,0 +1,20 @@
+<div class="mx-auto my-3" style='width: 500px'>
+  <h1>Session has ended</h1>
+</div>
+<%# Counselor, Time, Mode %>
+<div class="form mx-auto" style='width: 500px'>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :rating, label: 'Are you feeling better now?',
+      as: :radio_buttons,
+      collection_wrapper_tag: 'div',
+      collection_wrapper_class: 'category-wrapper d-flex',
+      item_wrapper_class: 'category-counselor mx-3',
+      input_html: {class: 'category-selector'},
+      collection: [['Very bad', 1], ['Not really', 2], ['Slightly better', 3], ['Better', 4], ['Much Better', 5]]
+    %>
+    <%= f.submit  %>
+  <% end %>
+  <h3>Would you like to book a session?</h3>
+  <%= link_to "Yes", '#' %>
+  <%= link_to "No", '#' %>
+</div>

@@ -39,6 +39,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to @booking
+    end
+    authorize @booking
   end
 
   private
