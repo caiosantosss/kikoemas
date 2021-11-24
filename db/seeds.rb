@@ -55,7 +55,7 @@ file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
 user2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user3 = User.create!(
-  first_name: "Vivian Bao",
+  first_name: "Vivian",
   last_name: 'Bao',
   email: 'vivian@lewagon.jp',
   phone_number: '080 44448888',
