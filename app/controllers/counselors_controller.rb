@@ -1,6 +1,6 @@
 class CounselorsController < ApplicationController
   def dashboard
-    @counselor = policy_scope(Counselor).find(current_user.id)
-    authorize current_user
+    @counselor = current_counselor
+    authorize current_counselor
   end
 end
