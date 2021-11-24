@@ -1,2 +1,14 @@
-<h1>Counselor#dashboard</h1>
-<p>Find me in app/views/counselor/dashboard.html.erb</p>
+
+
+
+<footer class='d-flex justify-content-center' style='position:absolute;bottom:0;width:100%;'>
+  <%= link_to root_path do %>
+    <i class="far fa-user"></i>
+  <% end %>
+  <%= link_to bookings_path do %>
+    <i class="fas fa-clipboard-list"></i>
+  <% end %>
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-lamp-desk"></i>
+  <% end %>
+</footer>
