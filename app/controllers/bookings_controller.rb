@@ -40,15 +40,13 @@ class BookingsController < ApplicationController
 
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update(booking_params)
-      redirect_to @booking
-    end
     authorize @booking
+    @booking.update(booking_params)
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency)
+    params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency, :rating)
   end
 end
