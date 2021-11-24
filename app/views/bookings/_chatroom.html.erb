@@ -1,14 +1,8 @@
 <h1>Welcome</h1>
 <%= link_to "End session", '#', class: 'btn btn-warning'  %>
 <div id="messages" data-booking-id="<%= @booking.id %>">
-  <% @booking.messages.each do |booking| %>
-    <div class="message-container" id="message-<%= @message.id %>">
-      <i class="author">
-        <span><%= booking.sender.first_name %></span>
-        <small><%= booking.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= booking.content %></p>
-    </div>
+  <% @booking.messages.each do |message| %>
+    <%= render 'messages/message', message: message %>
   <% end %>
 </div>
 <%= simple_form_for [ @booking, @message ], remote: true do |f| %>

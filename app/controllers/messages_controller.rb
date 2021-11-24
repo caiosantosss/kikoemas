@@ -7,7 +7,11 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-      redirect_to booking_path(@booking)
+      BookingChannel.broadcast_to(
+        @booking,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      redirect_to booking_path(@booking, anchor: "message-#{@message.id}")
     else
       render 'bookings/show'
     end
