@@ -20,9 +20,21 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user_or_counselor!
-    authenticate_user! || authenticate_counselor!
-    # unless user_signed_in? || counselor_signed_in?
+    if current_counselor
+      authenticate_counselor!
+    else
+      authenticate_user!
+    end
+    # user_signed_in? || counselor_signed_in?
     #   raise AuthorizationException.new
     # end
+  end
+
+  def after_sign_in_path_for(user)
+    if user.is_a?(Counselor)
+      counselor_dashboard_path
+    else
+      root_path
+    end
   end
 end
