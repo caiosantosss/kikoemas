@@ -1,0 +1,5 @@
+<h2>Student rating</h2>
+<% when @booking.rating.present? %>
+<%= @booking.rating %>
+<h2>The session has ended.</h2>
+<%= link_to "Add a note", "#", class: "btn btn-ghost" %>
