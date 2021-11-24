@@ -9,7 +9,7 @@
       <p>with <%= @bookings.first.counselor.last_name %> <%= @bookings.first.counselor.first_name %></p>
     </div>
     <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left">
-      <p>Date: <%= @bookings.first.date %></p>
+      <p>Date: <%= @bookings.first.start_time %></p>
       <p>Mode: <%= @bookings.first.mode %></p>
     </div>
 </div>
@@ -23,7 +23,7 @@
       <p>with <%= booking.counselor.last_name %> <%= booking.counselor.first_name %></p>
     </div>
     <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left">
-      <p>Date: <%= booking.date %></p>
+      <p>Date: <%= booking.start_time %></p>
       <p>Mode: <%= booking.mode %></p>
     </div>
   </div>

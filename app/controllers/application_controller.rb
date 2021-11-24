@@ -25,9 +25,6 @@ class ApplicationController < ActionController::Base
     else
       authenticate_user!
     end
-    # user_signed_in? || counselor_signed_in?
-    #   raise AuthorizationException.new
-    # end
   end
 
   def after_sign_in_path_for(user)

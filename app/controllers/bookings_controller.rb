@@ -19,11 +19,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
-    @booking.counselor = Counselor.all[0]
+    @booking = Booking.new(booking_params)
+    @booking.mode = params[:booking][:mode].to_i
     @booking.user = current_user
-    @booking.in_session = params[:booking][:in_session] == 'true'
-    @booking.emergency = params[:booking][:emergency] == 'true'
+    if params[:booking][:emergency] == 'true'
+      @booking.counselor = Counselor.all[0]
+      @booking.start_time = Time.now
+      @booking.in_session = true
+      @booking.emergency = true
+    else
+      @booking.in_session = false
+      @booking.emergency = false
+    end
     authorize @booking
     if @booking.save
       if @booking.emergency == true
@@ -37,5 +44,11 @@ class BookingsController < ApplicationController
   end
 
   def update
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:counselor_id, :start_time, :end_time)
   end
 end
