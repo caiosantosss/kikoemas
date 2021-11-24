@@ -8,6 +8,7 @@ const initBookingCable = () => {
     consumer.subscriptions.create({ channel: "BookingChannel", id: id }, {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
+        messagesContainer.insertAdjacentHTML('beforeend', data);
       },
     });
   }
