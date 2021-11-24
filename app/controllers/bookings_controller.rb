@@ -23,13 +23,8 @@ class BookingsController < ApplicationController
     @booking.mode = params[:booking][:mode].to_i
     @booking.user = current_user
     if params[:booking][:emergency] == 'true'
-      @booking.counselor = Counselor.all[0]
+      @booking.counselor = Counselor.all.sample
       @booking.start_time = Time.now
-      @booking.in_session = true
-      @booking.emergency = true
-    else
-      @booking.in_session = false
-      @booking.emergency = false
     end
     authorize @booking
     if @booking.save
@@ -49,6 +44,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:counselor_id, :start_time, :end_time)
+    params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency)
   end
 end
