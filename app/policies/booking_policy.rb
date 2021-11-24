@@ -10,7 +10,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    raise
     user || counselor
   end
 
