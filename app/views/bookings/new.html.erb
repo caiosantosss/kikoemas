@@ -18,9 +18,12 @@
       collection_wrapper_class: 'category-wrapper d-flex',
       item_wrapper_class: 'category-mode mx-3',
       input_html: {class: 'category-selector'},
-      # label_html: {class: 'text-dark'},
       collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
     %>
+    <%= f.hidden_field :in_session, value: false, as: :boolean %>
+    <%= f.hidden_field :emergency, value: false, as: :boolean %>
     <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
   <% end %>
 </div>
+
+<%= render 'shared/footer' %>

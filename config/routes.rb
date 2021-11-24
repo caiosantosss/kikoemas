@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'counselor/dashboard'
+  get 'counselors/dashboard'
   get 'users/dashboard'
   devise_for :counselors
   devise_for :users

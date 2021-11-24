@@ -1,20 +1,20 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user ? scope.where(user: user) : scope.where(counselor: counselor)
+      user.is_a?(User) ? scope.where(user: user) : scope.where(counselor: user)
     end
   end
 
   def index?
-    user || counselor
+    user
   end
 
   def show?
-    user || counselor
+    user
   end
 
   def create?
-    user || counselor
+    user
   end
 
   def new?
@@ -22,6 +22,6 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    user || counselor
+    user
   end
 end

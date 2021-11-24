@@ -6,7 +6,7 @@ class MessagePolicy < ApplicationPolicy
   end
 
   def create?
-    user || counselor
+    user
   end
 
 end
