@@ -1,11 +1,12 @@
 <p><strong>Name:</strong> <%= @counselor.first_name %></p>
 <p><strong>Email:</strong>  <%= @counselor.email %></p>
-<div class="sos d-flex justify-content-center p-3 border border-dark m-3">
-  <p>EMERGENCY REQUEST</p>
-</div>
-<div class="sos d-flex justify-content-center p-3 border border-dark m-3">
-  <p>EMERGENCY REQUEST</p>
-</div>
-
-
+<% @counselor.bookings.each do |booking| %>
+  <% if booking.in_session == true %>
+    <div class="d-flex justify-content-center p-3 border border-dark m-3">
+      <p>THAT MESSAGE</p>
+    </div>
+  <% else %>
+    <p>You don't have any urgent booking 😉</p>
+  <% end %>
+<% end %>
 <%= render 'shared/footer_counselor' %>
