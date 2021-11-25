@@ -8,9 +8,9 @@
 <% else %>
   <div class="message-container-receive" id="message-<%= message.id %>">
     <% if message.sender == @counselor  %>
-      <%= cl_image_tag(@booking.counselor.photo.key, height: 80, width: 80, radius: 'max', background: '') %>
+      <%= cl_image_tag(@booking.counselor.photo.key, height: 40, width: 40, radius: 'max', background: '#f9fafd') %>
     <% else %>
-      <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '') %>
+      <%= cl_image_tag(@booking.user.photo.key, height: 40, width: 40, radius: 'max', background: '#f9fafd') %>
     <% end %>
     <div class="chat-message-receive">
       <i class="author">
