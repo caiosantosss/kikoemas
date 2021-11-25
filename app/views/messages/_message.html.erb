@@ -1,15 +1,17 @@
 <% if message.sender == current_counselor || message.sender == current_user %>
   <div class="message-container" id="message-<%= message.id %>">
     <div class="chat-message">
-      <i class="author">
-        <span><%= message.sender.first_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
       <p><%= message.content %></p>
     </div>
+    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
   </div>
 <% else %>
   <div class="message-container-receive" id="message-<%= message.id %>">
+    <% if message.sender == @counselor  %>
+      <%= cl_image_tag(@booking.counselor.photo.key, height: 80, width: 80, radius: 'max', background: '') %>
+    <% else %>
+      <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '') %>
+    <% end %>
     <div class="chat-message-receive">
       <i class="author">
         <span><%= message.sender.first_name %></span>
