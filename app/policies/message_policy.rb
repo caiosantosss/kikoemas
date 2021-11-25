@@ -8,5 +8,4 @@ class MessagePolicy < ApplicationPolicy
   def create?
     user
   end
-
 end

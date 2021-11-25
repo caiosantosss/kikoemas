@@ -142,7 +142,7 @@ booking3 = Booking.create!(
 
 puts 'All Booking created'
 
-#test for messageable
+# test for messageable
 
 # booking = Booking.create
 # counselor = Counselor.create(fist_name: "Ryota")
