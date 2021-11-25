@@ -1,14 +1,29 @@
-<h1>Welcome</h1>
-<%= simple_form_for @booking do |f|  %>
-  <%= f.hidden_field :in_session, value: false, as: :boolean %>
-  <%= f.button :submit, 'End Session', class: 'btn btn-primary mx-2' %>
-<% end %>
-<div id="messages" data-booking-id="<%= @booking.id %>">
-  <% @booking.messages.each do |message| %>
-    <%= render 'messages/message', message: message %>
-  <% end %>
+<div class="page-frame-content">
+  <div class="top-head">
+    <%= simple_form_for @booking do |f|  %>
+      <%= f.hidden_field :in_session, value: false, as: :boolean %>
+      <div class="top-head-button">
+        <%= f.button :submit, 'End Session', class: 'btn btn-primary mx-1' %>
+      </div>
+    <% end %>
+  </div>
+  <%# Message body %>
+  <div class="page-frame-body">
+    <div id="messages" data-booking-id="<%= @booking.id %>">
+      <% @booking.messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
+      <% end %>
+    </div>
+  </div>
+  <%# Text input %>
+  <div class="chatroom-text-box">
+    <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
+      <div class='page-frame-footer d-flex'>
+        <%= f.input :content, label: false, placeholder: "Aa" %>
+        <%= f.button :button do %>
+          <i class="fas fa-paper-plane"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<%= simple_form_for [ @booking, @message ], remote: true do |f| %>
-  <%= f.input :content, label: false, placeholder: "Aa" %>
-  <%= f.submit  %>
-<% end %>
