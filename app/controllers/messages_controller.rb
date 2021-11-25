@@ -3,8 +3,9 @@ class MessagesController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @message = Message.new(message_params)
     @message.booking = @booking
-    @message.sender = current_user
+    @message.sender = pundit_user
     authorize @message
+
 
     if @message.save
       BookingChannel.broadcast_to(
