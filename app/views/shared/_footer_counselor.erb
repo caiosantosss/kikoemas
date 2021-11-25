@@ -1,11 +1,21 @@
 <footer class='d-flex justify-content-center position-sticky'>
-  <%= link_to counselor_dashboard_path do %>
-    <i class="far fa-user"></i>
-  <% end %>
-  <%= link_to counselor_bookings_path do %>
-    <i class="fas fa-clipboard-list"></i>
-  <% end %>
-  <%= link_to counselor_dashboard_path do %>
-    <i class="fas fa-book"></i>
-  <% end %>
+  <div>
+    <%= link_to counselor_dashboard_path do %>
+      <i class="far fa-user"></i>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to counselor_bookings_path do %>
+      <i class="fas fa-clipboard-list"></i>
+    <% end %>
+    <% count = current_counselor.bookings.where('counselor_read = ?', false).count %>
+    <% if current_counselor && count > 0 %>
+      <div class="notification badge badge-pill badge-warning"><%= count %></div>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to counselor_dashboard_path do %>
+      <i class="fas fa-book"></i>
+    <% end %>
+  </div>
 </footer>
