@@ -22,6 +22,44 @@
   overflow: scroll;
 }
 
-.chatroom-text-box {
-  min-height: 2rem;
+.page-frame-footer {
+  background-color: #ad80fa;
+  background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+}
+
+// chat messages
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 5px 10px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.chat-message {
+  background-color: #D9EDF7;
+  border-color: #BCE8F1;
+  padding: 8px;
+  border-radius: 5px;
+  max-width: 77%;
+    p {
+      word-break: break-all;
+    }
+}
+
+.message-container-receive {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 5px 10px;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.chat-message-receive {
+  background-color: #F1F0F0;
+  border-color: #EEEEEE;
+  padding: 8px;
+  border-radius: 5px;
 }
