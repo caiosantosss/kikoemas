@@ -1,0 +1,47 @@
+<% if false %>
+  <% if @upcoming.any? %>
+    <% @upcoming.each do |booking| %>
+      <div class="d-flex mx-auto my-3 p-3 border border-dark">
+        <div>
+          <div>
+            <% if booking.start_time.monday? %>
+              <p>Monday: You have: <%= @upcoming.count %> booking</p>
+            <% else %>
+              <p>Monday: You don't have any booking for Monday.</p>
+            <% end %>
+          </div>
+          <div>
+            <% if booking.start_time.tuesday? %>
+              <p>Tuesday: You have: <%= @upcoming.count %> booking</p>
+            <% else %>
+              <p>Tuesday: You don't have any booking for Tuesday.</p>
+            <% end %>
+          </div>
+          <div>
+            <% if booking.start_time.wednesday? %>
+              <p>Wednesday: You have: <%= @upcoming.count %> booking</p>
+            <% else %>
+              <p>Wednesday: You don't have any booking for Wednesday.</p>
+            <% end %>
+          </div>
+          <div>
+            <% if booking.start_time.thursday? %>
+              <p>Thursday: You have: <%= @upcoming.count %> booking</p>
+            <% else %>
+              <p>Thursday: You don't have any booking for Thursday.</p>
+            <% end %>
+          </div>
+          <div>
+            <% if booking.start_time.friday? %>
+              <p>Friday: You have: <%= @upcoming.count %> booking</p>
+            <% else %>
+              <p>Friday: You don't have any booking for Friday.</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <p class='ml-5'>No upcoming bookings!</p>
+  <% end %>
+<% end %>

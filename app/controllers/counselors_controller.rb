@@ -15,6 +15,8 @@ class CounselorsController < ApplicationController
       most_recent = past.order(:start_time).first
       [student, most_recent]
     end
+    @today = current_counselor.bookings.where(start_time: Time.zone.now.beginning_of_day..Time.zone.now.end_of_day)
+    @this_week = current_counselor.bookings.where('start_time BETWEEN ? AND ?', Time.now.beginning_of_week, Time.now.end_of_week)
   end
 
   def set_as_read
