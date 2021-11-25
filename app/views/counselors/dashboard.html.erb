@@ -7,7 +7,7 @@
       <%= link_to '', booking_path(booking), class: 'card-link' %>
       <div>
         <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
-        <p><strong>EMERGENCY CALL</strong></p>
+        <p><strong>EMERGENCY REQUEST</strong></p>
         <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
         <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
       </div>
