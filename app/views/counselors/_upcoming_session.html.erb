@@ -1,18 +1,52 @@
 <% if @upcoming.any? %>
-  <%# raise %>
   <% @upcoming.each do |booking| %>
-    <div class="row mx-auto my-3 p-3 justify-content-center border border-dark">
-      <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center">
-        <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
-        <p>with <%= booking.user.last_name %> <%= booking.user.first_name %></p>
-      </div>
-      <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left">
-        <% date = booking.start_time %>
-        <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
-        <p>Mode: <%= booking.mode %></p>
+    <div class="d-flex mx-auto my-3 p-3 border border-dark">
+      <div>
+        <div>
+          <% if booking.start_time.monday? %>
+            <p>Monday: You have: <%= @upcoming.count %> booking</p>
+          <% else %>
+            <p>Monday: You don't have any booking for Monday.</p>
+          <% end %>
+        </div>
+        <div>
+          <% if booking.start_time.tuesday? %>
+            <p>Tuesday: You have: <%= @upcoming.count %> booking</p>
+          <% else %>
+            <p>Tuesday: You don't have any booking for Tuesday.</p>
+          <% end %>
+        </div>
+        <div>
+          <% if booking.start_time.wednesday? %>
+            <p>Wednesday: You have: <%= @upcoming.count %> booking</p>
+          <% else %>
+            <p>Wednesday: You don't have any booking for Wednesday.</p>
+          <% end %>
+        </div>
+        <div>
+          <% if booking.start_time.thursday? %>
+            <p>Thursday: You have: <%= @upcoming.count %> booking</p>
+          <% else %>
+            <p>Thursday: You don't have any booking for Thursday.</p>
+          <% end %>
+        </div>
+        <div>
+          <% if booking.start_time.friday? %>
+            <p>Friday: You have: <%= @upcoming.count %> booking</p>
+          <% else %>
+            <p>Friday: You don't have any booking for Friday.</p>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>
 <% else %>
   <p class='ml-5'>No upcoming bookings!</p>
 <% end %>
+<%#= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+<%#= <p>with</p>  booking.user.last_name %> <%#= booking.user.first_name %>
+<%# </div> %>
+<%# <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left"> %>
+<%# <% date = booking.start_time %>
+<%#= <p>Date: </p> date.year/ %><%#= date.month /%><%#= date.day %> <%#= date.hour :%><%#= date.min == 0 ? '00' : date.min %>
+<%#= <p>Mode: </p> booking.mode %>
