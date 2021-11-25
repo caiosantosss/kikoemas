@@ -4,6 +4,9 @@
  margin: 5em auto;
  background: white;
  padding: auto;
- box-shadow: 5px 10px #888888;
+  box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
 //  border: 1px ligth gray;
 }
