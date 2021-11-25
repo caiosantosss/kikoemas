@@ -1,12 +1,16 @@
 <p><strong>Name:</strong> <%= @counselor.first_name %></p>
 <p><strong>Email:</strong>  <%= @counselor.email %></p>
-<% @counselor.bookings.each do |booking| %>
+<% current_counselor.bookings.map do |booking| %>
   <% if booking.in_session == true %>
-    <div class="d-flex justify-content-center p-3 border border-dark m-3">
-      <p>THAT MESSAGE</p>
+    <div class="btn d-flex justify-content-center p-3 border border-dark m-3 position-relative">
+      <%= link_to '', booking_path(booking), class: 'card-link' %>
+      <div>
+        <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+        <p><strong>EMERGENCY CALL</strong></p>
+        <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+        <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+      </div>
     </div>
-  <% else %>
-    <p>You don't have any urgent booking 😉</p>
   <% end %>
 <% end %>
 <%= render 'shared/footer_counselor' %>
