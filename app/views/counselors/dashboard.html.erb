@@ -3,8 +3,11 @@
 <% current_counselor.bookings.map do |booking| %>
   <% if booking.in_session == true %>
     <div class="d-flex justify-content-center p-3 border border-dark m-3">
-      <%= raise %>
-      <p><%  %></p>
+      <div>
+        <p><strong>EMERGENCY CALL</strong></p>
+        <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+        <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+      </div>
     </div>
   <% end %>
 <% end %>
