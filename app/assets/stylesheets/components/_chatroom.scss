@@ -1,0 +1,19 @@
+.page-frame-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.page-frame-header {
+  padding: 16px;
+}
+
+.page-frame-body {
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+.page-frame-footer {
+  padding: 16px;
+}
