@@ -2,6 +2,9 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
+    @new_bookings = current_user.bookings.where("date_part('hour', created_at) = ?", Time.now.hour)
+    @upcoming = current_user.bookings.where('start_time > ?', Time.now)
+    @past = current_user.bookings.where('start_time < ?', Time.now)
   end
 
   def show
