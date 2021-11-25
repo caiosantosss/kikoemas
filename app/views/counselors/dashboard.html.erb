@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <p><strong>Name:</strong> <%= @counselor.first_name %></p>
 <p><strong>Email:</strong>  <%= @counselor.email %></p>
 <% current_counselor.bookings.map do |booking| %>
