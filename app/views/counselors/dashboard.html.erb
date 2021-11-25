@@ -2,7 +2,8 @@
 <p><strong>Email:</strong>  <%= @counselor.email %></p>
 <% current_counselor.bookings.map do |booking| %>
   <% if booking.in_session == true %>
-    <div class="d-flex justify-content-center p-3 border border-dark m-3">
+    <div class="btn d-flex justify-content-center p-3 border border-dark m-3">
+      <% link_to bookings_path(booking.id) %>
       <div>
         <p><strong>EMERGENCY CALL</strong></p>
         <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
