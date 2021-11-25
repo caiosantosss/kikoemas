@@ -1,22 +1,20 @@
+
 .form{
   background: $background-image;
-}
-.form{
-
   margin: 5em auto;
   padding: 5px;
-  width: 800px;
   height: 600px;
    padding: 20px;
   box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
-             0 0  0 2px rgb(255,255,255),
+            //  0 0  0 2px rgb(255,255,255),
              0.3em 0.3em 1em rgba(0,0,0,0.3);
  h1{
   font-family:Helvetica,Arial,sans-serif;
     font-size: 32px;
     font-weight: 600;
-    line-height: 62px;text-align: center;
+    line-height: 62px;
+    text-align: center;
  }
 }
 .category-wrapper {
@@ -45,13 +43,41 @@
     border-radius: 4px;
 }
 label{
+   font-weight: 600;
   img{
     border-radius: 50%;
-     box-shadow:
-       inset 0 -3em 3em rgba(0,0,0,0.1),
-             0 0  0 2px rgb(255,255,255),
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
+    //  box-shadow:
+    //    inset 0 -3em 3em rgba(0,0,0,0.1),
+    //          0 0  0 2px rgb(255,255,255),
+    //          0.3em 0.3em 1em rgba(0,0,0,0.3);
+    opacity: 1;
+     transition: .5s ease;
+  backface-visibility: hidden;
   }
+  img:hover{
+     opacity: 0.3;
+  }
+}
+// raise a ticket asap tom
+
+// .middle {
+//   transition: .5s ease;
+//   opacity: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);
+//   text-align: center;
+// }
+// .text {
+//   background-color: #04AA6D;
+//   color: white;
+//   font-size: 16px;
+//   padding: 16px 32px;
+// }
+.col-form-label {
+font-weight: 600;
 }
 .category-selector:checked + label {
   color: $kikoe-pink !important;
@@ -84,4 +110,9 @@ label{
 .form-check-input.is-valid ~ .form-check-label:hover {
  background-color: $background-color;
   color: white;
+}
+@media only screen and (max-width: 600px) {
+  body {
+    background:$background-image;
+  }
 }
