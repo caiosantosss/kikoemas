@@ -1,8 +1,9 @@
-<h1>Welcome</h1>
-<%= simple_form_for @booking do |f|  %>
-  <%= f.hidden_field :in_session, value: false, as: :boolean %>
-  <%= f.button :submit, 'End Session', class: 'btn btn-primary mx-2' %>
-<% end %>
+<div class="top-head">
+  <%= simple_form_for @booking do |f|  %>
+    <%= f.hidden_field :in_session, value: false, as: :boolean %>
+    <%= f.button :submit, 'End Session', class: 'btn btn-primary mx-2' %>
+  <% end %>
+</div>
 <div id="messages" data-booking-id="<%= @booking.id %>">
   <% @booking.messages.each do |message| %>
     <%= render 'messages/message', message: message %>
