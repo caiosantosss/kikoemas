@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
+  after_action :set_as_read, only:[:index]
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
-    @new_bookings = current_user.bookings.where("date_part('hour', created_at) = ?", Time.now.hour)
+    @new_bookings = current_user.bookings.where("student_read = ?", false)
     @upcoming = current_user.bookings.where('start_time > ?', Time.now)
     @past = current_user.bookings.where('start_time < ?', Time.now)
   end
@@ -52,5 +53,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency, :rating, :note)
+  end
+
+  def set_as_read
+    current_user.bookings.update_all(student_read: true)
   end
 end
