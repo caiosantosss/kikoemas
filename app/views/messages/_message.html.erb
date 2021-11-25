@@ -1,4 +1,4 @@
-<% if message.sender_type == 'User' %>
+<% if message.sender == current_counselor || message.sender == current_user %>
   <div class="message-container" id="message-<%= message.id %>">
     <div class="chat-message">
       <i class="author">
