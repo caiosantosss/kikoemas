@@ -1,22 +1,19 @@
+*{
+  background: $background-image;
+}
 .form{
-  border: 1px solid $kikoe-lightblue;
+  border: 1px solid $kikoe-blue;
   margin: 5em auto;
   padding: 5px;
   width: 800px;
- height: 600px;
+  height: 600px;
  h1{
   font-family:Helvetica,Arial,sans-serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 600;
     line-height: 62px;text-align: center;
-
- }
- .mx-auto{
-   border:1px solid $kikoe-lightblue ;
  }
 }
-
-
 .category-wrapper {
   display: flex;
   // justify-content: space-between;
@@ -41,11 +38,20 @@
   font-size: 12px;
   text-align: left;
   padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
-   background-color: white;
+  // border: 1px solid #EAEAEA;
+  // border-radius: 4px;
+  //  background-color: white;
 }
 
 .category-selector:checked + label {
   color: $kikoe-pink !important;
+}
+//new-btn
+.new-btn{
+   transition-duration: 0.4s;
+    background-color: $kikoe-pink;
+}
+.new-btn:hover{
+  background-color: $kikoe-lightblue;
+  color:$kikoe-pink ;
 }
