@@ -7,6 +7,7 @@
       </div>
     <% end %>
   </div>
+  <%# Message body %>
   <div class="page-frame-body">
     <div id="messages" data-booking-id="<%= @booking.id %>">
       <% @booking.messages.each do |message| %>
@@ -14,10 +15,15 @@
       <% end %>
     </div>
   </div>
-  <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
-    <div class='page-frame-footer d-flex'>
-      <%= f.input :content, label: false, placeholder: "Aa" %>
-      <%= f.submit  %>
-    </div>
-  <% end %>
+  <%# Text input %>
+  <div class="chatroom-text-box">
+    <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
+      <div class='page-frame-footer d-flex'>
+        <%= f.input :content, label: false, placeholder: "Aa" %>
+        <%= f.button :button do %>
+          <i class="fas fa-paper-plane"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
