@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_095747) do
+ActiveRecord::Schema.define(version: 2021_11_25_074130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2021_11_24_095747) do
     t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean "counselor_read", default: false
+    t.boolean "student_read", default: false
     t.index ["counselor_id"], name: "index_bookings_on_counselor_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
