@@ -6,8 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-
 require 'open-uri'
 require 'json'
 
@@ -64,10 +62,10 @@ user3 = User.create!(
   school: school1
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
+file = URI.open("")
 user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
-user4 = User.create!(
+user3 = User.create!(
   first_name: "Caio",
   last_name: 'Santos',
   email: 'caio@lewagon.jp',
@@ -77,12 +75,23 @@ user4 = User.create!(
   school: school1
 )
 file = URI.open("https://avatars.githubusercontent.com/u/87355777?v=4")
-user4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Users created'
 puts 'Creating Counselors........'
 
 counselor1 = Counselor.create!(
+  first_name: "Vivian",
+  last_name: 'Bow',
+  email: 'vivian@lewagon.jp',
+  password: '123456',
+  school: school1
+)
+
+file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
+counselor1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+counselor2 = Counselor.create!(
   first_name: "Doug",
   last_name: 'Berkley',
   email: 'doug@lewagon.jp',
@@ -91,9 +100,9 @@ counselor1 = Counselor.create!(
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
-counselor1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+counselor2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
-counselor2 = Counselor.create!(
+counselor3 = Counselor.create!(
   first_name: "Trouni",
   last_name: 'Tiet',
   email: 'trouni@lewagon.jp',
@@ -102,45 +111,42 @@ counselor2 = Counselor.create!(
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/34345789?v=4")
-counselor2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+counselor3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+counselor4 = Counselor.create!(
+  first_name: "Yann",
+  last_name: 'Klein',
+  email: 'yann@lewagon.jp',
+  password: '123456',
+  school: school1
+)
+
+file = URI.open("https://avatars.githubusercontent.com/u/26819547?v=4")
+counselor4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+counselor5 = Counselor.create!(
+  first_name: "Derek",
+  last_name: 'Torres',
+  email: 'derek@lewagon.jp',
+  password: '123456',
+  school: school1
+)
+
+file = URI.open("https://avatars.githubusercontent.com/u/77267436?v=4")
+counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+counselor6 = Counselor.create!(
+  first_name: "Noemi",
+  last_name: 'Ashizuka',
+  email: 'noemi@lewagon.jp',
+  password: '123456',
+  school: school1
+)
+
+file = URI.open("https://avatars.githubusercontent.com/u/56534210?v=4")
+counselor6.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
-puts 'Creating Bookings.........'
-
-booking1 = Booking.create!(
-  start_time: Time.now - 2.days,
-  end_time: Time.now + 1*60*60,
-  mode: 1,
-  user: user1,
-  counselor: counselor1,
-  note: 'That was a good conversation. He was with some trouble with his girlfriend, but now is everything ok.',
-  rating: 5,
-  in_session: false
-)
-
-booking2 = Booking.create!(
-  start_time: Time.now - 3.days,
-  end_time: Time.now + 1*60*60,
-  mode: 2,
-  user: user2,
-  counselor: counselor1,
-  note: "She wasn't feeling confident because her friends weren't talking with her, I talked with her and now she is feeling better and She said, she would like to keep talking with some counselor",
-  rating: 4,
-  in_session: false
-)
-
-booking3 = Booking.create!(
-  start_time: Time.now - 4.days,
-  end_time: Time.now + 1*60*60,
-  mode: 1,
-  user: user3,
-  counselor: counselor2,
-  note: "It was a really great conversation. She had some issue about her cat passed away. After the talk, it seems fine.",
-  rating: 5,
-  in_session: false
-)
-
-puts 'All Booking created'
 
 # test for messageable
 
