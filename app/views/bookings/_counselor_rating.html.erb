@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-  <div class="wrapper text-center">
+<div class="container w-100">
+  <div class="wrapper text-center w-100">
     <h3 class="session-ended pt-5">The session has ended.</h3>
     <div class="user_pic text-center pt-5">
       <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
