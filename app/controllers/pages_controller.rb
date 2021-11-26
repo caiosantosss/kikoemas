@@ -4,5 +4,6 @@ class PagesController < ApplicationController
 
   def home
     @booking = Booking.new
+    @counselors = Counselor.all
   end
 end

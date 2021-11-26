@@ -1,17 +1,46 @@
 <%= render 'shared/navbar' %>
-<h3 class='ml-3 mt-3'>SOS section</h3>
-<div class="sos d-flex justify-content-center p-3 border border-dark mx-3">
-  <%= simple_form_for @booking do |f|  %>
-    <%= f.hidden_field :mode, value: 0 %>
-    <%= f.hidden_field :in_session, value: true, as: :boolean %>
-    <%= f.hidden_field :emergency, value: true, as: :boolean %>
-    <%= f.button :submit, 'Chatroom', class: 'btn btn-primary mx-2' %>
-  <% end %>
-  <%= simple_form_for @booking do |f|  %>
-    <%= f.hidden_field :mode, value: 1 %>
-    <%= f.hidden_field :in_session, value: true %>
-    <%= f.hidden_field :emergency, value: true %>
-    <%= f.button :submit, 'Video call', class: 'btn btn-primary mx-2' %>
-  <% end %>
+<div class="daily-report">
+  <h3>How are you feeling today?</h2>
+  <p>Record your emotion of today!</p>
+  <div class="emotions d-flex justify-content-center">
+    <i class="far fa-laugh-beam"></i>
+    <i class="far fa-smile-beam"></i>
+    <i class="far fa-meh"></i>
+    <i class="far fa-sad-tear"></i>
+    <i class="far fa-tired"></i>
+    <i class="far fa-angry"></i>
+  </div>
+</div>
+<h3 class='sos-text mt-3 text-center'>--- I need help now ---</h3>
+<div class='sos m-3 p-4'>
+  <div class='online-counselors'>
+    <p style='margin-bottom: 0; margin-left: 16px'>Online counselors at your school:</p>
+    <div class="d-flex p-2">
+      <% @counselors.each do |counselor| %>
+        <div class="counselor-pic ml-2">
+          <%= cl_image_tag(counselor.photo.key, height: 50, width: 50, radius: 'max', background: '#f4f4f4') %>
+        </div>
+        <div class='notification-online badge badge-success'>  </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center p-3 mx-5">
+    <div class='mx-3'>
+      <%= simple_form_for @booking do |f|  %>
+        <%= f.hidden_field :mode, value: 0 %>
+        <%= f.hidden_field :in_session, value: true, as: :boolean %>
+        <%= f.hidden_field :emergency, value: true, as: :boolean %>
+        <%= f.button :submit, 'Chatroom', class: 'sos-button btn btn-primary mx-2' %>
+      <% end %>
+    </div>
+    <div class='mx-3'>
+      <%= simple_form_for @booking do |f|  %>
+        <%= f.hidden_field :mode, value: 1 %>
+        <%= f.hidden_field :in_session, value: true %>
+        <%= f.hidden_field :emergency, value: true %>
+        <%= f.button :submit, 'Video call', class: 'sos-button btn btn-primary mx-2' %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <%= render 'shared/footer' %>
