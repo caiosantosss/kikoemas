@@ -45,6 +45,7 @@
   max-width: 77%;
     p {
       word-break: break-all;
+      margin-bottom: 0;
     }
 }
 
@@ -62,4 +63,9 @@
   border-color: #EEEEEE;
   padding: 8px;
   border-radius: 5px;
+  max-width: 77%;
+      p {
+      word-break: break-all;
+      margin-bottom: 0;
+    }
 }

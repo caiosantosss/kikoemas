@@ -10,6 +10,9 @@
   <%# Message body %>
   <div class="page-frame-body">
     <div id="messages" data-booking-id="<%= @booking.id %>">
+      <div class="text-center my-2">
+        <small><%= @booking.created_at.strftime("%a %b %e") %></small>
+      </div>
       <% @booking.messages.each do |message| %>
         <%= render 'messages/message', message: message %>
       <% end %>
