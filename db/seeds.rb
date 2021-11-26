@@ -122,17 +122,6 @@ counselor5 = Counselor.create!(
 file = URI.open("https://avatars.githubusercontent.com/u/77267436?v=4")
 counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
-counselor6 = Counselor.create!(
-  first_name: "Noemi",
-  last_name: 'Ashizuka',
-  email: 'noemi@lewagon.jp',
-  password: '123456',
-  school: school1
-)
-
-file = URI.open("https://avatars.githubusercontent.com/u/56534210?v=4")
-counselor6.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
-
 puts 'Counselors created'
 
 # test for messageable
