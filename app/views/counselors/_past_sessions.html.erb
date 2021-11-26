@@ -7,7 +7,7 @@
       <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
       <p><%= pair[0].last_name %> <%= pair[0].first_name %></p>
       <div class='recent_session card' data-controller='show-session-info'>
-        <div class='btn btn-primary text-center'data-action="click->show-session-info#displayCard">Recent Session</div>
+        <div class='recent-button text-center'data-action="click->show-session-info#displayCard">Recent Session</div>
         <div class='session-info d-none' data-show-session-info-target='infos'>
           <% date = pair[1].start_time %>
           <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
