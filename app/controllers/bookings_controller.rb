@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     @booking.mode = params[:booking][:mode].to_i
     @booking.user = current_user
     if params[:booking][:emergency] == 'true'
-      @booking.counselor = Counselor.all.sample
+      @booking.counselor = Counselor.all.first
       @booking.start_time = Time.now
     end
     authorize @booking
