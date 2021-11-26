@@ -1,6 +1,8 @@
-<div class="mx-auto my-3" style='width: 500px'><h1>Book a Session</h1></div>
+<div class="mx-auto my-3" style='width: 500px'>
+  <h1>Book a Session</h1>
+</div>
 <%# Counselor, Time, Mode %>
-<div class="form mx-auto" style='width: 500px'>
+<div class="form mx-auto justify-content-center" style='width: 500px'>
   <%= simple_form_for @booking do |f| %>
     <%= f.association :counselor, label: 'Counselors',
       as: :radio_buttons,
@@ -25,5 +27,4 @@
     <%= f.button :submit, 'Submit', class: 'btn btn-primary' %>
   <% end %>
 </div>
-
 <%= render 'shared/footer' %>
