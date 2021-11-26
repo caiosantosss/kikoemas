@@ -9,6 +9,9 @@ const initBookingCable = () => {
       received(data) {
         console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
+        const messages = messagesContainer.querySelectorAll('.message-container')
+        const message = messages[messages.length - 1]
+        message.scrollIntoView();
       },
     });
   }
