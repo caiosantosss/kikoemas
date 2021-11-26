@@ -8,3 +8,22 @@ footer {
     color: rgb(141, 144, 146);
   }
 }
+
+.online-counselors {
+  // color: $green;
+  .counselor-pic img {
+    border-radius: 50%;
+  }
+}
+
+.sos {
+  // background-color: #ad80fa;
+  background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+  color: white;
+}
+
+.sos-button {
+  box-shadow: 3px 3px 3px grey;
+  border-color: rgb(223, 136, 166);
+  color: white;
+}
