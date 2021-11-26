@@ -1,4 +1,4 @@
-.student-rating{
+.wrapper{
  width: 600px;
  height: 500px;
  margin: 5em auto;
@@ -9,4 +9,20 @@
              0 0  0 2px rgb(255,255,255),
              0.3em 0.3em 1em rgba(0,0,0,0.3);
 //  border: 1px ligth gray;
+}
+.counselor-rating-btn {
+   border-color: $kikoe-purple;
+  color: $kikoe-pink;
+}
+
+.counselor-rating-btn:hover {
+  background-color: $kikoe-pink;
+  color: white;
+  text-decoration: none;
+}
+@media(min-width:700px){
+.wrapper{
+display: grid;
+grid-template-columns: 1fr,2fr;
+}
 }
