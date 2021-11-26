@@ -3,7 +3,7 @@
     <%= simple_form_for @booking do |f|  %>
       <%= f.hidden_field :in_session, value: false, as: :boolean %>
       <div class="top-head-button">
-        <%= f.button :submit, 'End Session', class: 'btn btn-primary mx-2' %>
+        <%= f.button :submit, 'End Session', class: 'btn btn-sm btn-primary mx-2', style: 'color: rgba(249, 250, 253, 1)' %>
       </div>
     <% end %>
   </div>

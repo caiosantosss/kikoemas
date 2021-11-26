@@ -6,7 +6,6 @@ class MessagesController < ApplicationController
     @message.sender = pundit_user
     authorize @message
 
-
     if @message.save
       BookingChannel.broadcast_to(
         @booking,
