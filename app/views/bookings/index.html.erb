@@ -38,7 +38,6 @@
         <% date = booking.start_time %>
         <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
         <p>Mode: <%= booking.mode %></p>
-        <p>Note: <%= booking.note %></p>
       </div>
     </div>
   <% end %>

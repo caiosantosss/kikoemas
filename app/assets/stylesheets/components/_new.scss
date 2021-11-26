@@ -1,6 +1,6 @@
 
 .form{
-  background: $background-image;
+  // background: $background-image;
   margin: 5em auto;
   padding: 5px;
   height: 600px;
@@ -90,7 +90,7 @@ font-weight: 600;
     border-radius: 4px;
 }
 .new-submit-btn:hover{
-   background-color: $background-color;
+  //  background-color: $background-color;
   color: white;
    box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
@@ -108,11 +108,11 @@ font-weight: 600;
 
 }
 .form-check-input.is-valid ~ .form-check-label:hover {
- background-color: $background-color;
+//  background-color: $background-color;
   color: white;
 }
 @media only screen and (max-width: 600px) {
   body {
-    background:$background-image;
+    // background:$background-image;
   }
 }
