@@ -46,7 +46,12 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
+   if @booking.user == current_user
     redirect_to booking_path(@booking)
+   else
+     @booking.counselor == current_counselor
+      redirect_to counselor_bookings_path
+    end
   end
 
   private
