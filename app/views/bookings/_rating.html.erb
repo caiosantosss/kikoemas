@@ -1,18 +1,22 @@
-<div class="mx-auto my-3 w-100">
+<div class="mx-auto my-3 w-100 text-center">
   <h1>Session has ended</h1>
 </div>
 <%# Counselor, Time, Mode %>
-<div class="form mx-auto w-100 justify-content-center">
-  <%= simple_form_for @booking, method: :patch do |f| %>
-    <%= f.input :rating, label: 'Are you feeling better now?',
+<div class="card m-5">
+  <div class="form mx-auto w-100 justify-content-center">
+    <%= simple_form_for @booking, method: :patch do |f| %>
+      <%= f.input :rating, label: 'Are you feeling better now?',
       as: :radio_buttons,
       collection_wrapper_tag: 'div',
-      collection_wrapper_class: 'category-wrapper d-flex',
+      collection_wrapper_class: 'category-wrapper m-2',
       item_wrapper_class: 'category-counselor mx-3',
       input_html: {class: 'category-selector', onchange: 'this.form.submit()'},
       collection: [['Very bad', 1], ['Not really', 2], ['Slightly better', 3], ['Better', 4], ['Much Better', 5]]
     %>
-  <% end %>
+    <% end %>
+  </div>
+</div>
+<div class="text-center">
   <h3>Would you like to book a session?</h3>
   <%= link_to "Yes", new_booking_path, class: 'btn btn-primary' %>
   <%= link_to "No", root_path, class: 'btn btn-primary' %>
