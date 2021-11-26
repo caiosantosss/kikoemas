@@ -1,20 +1,20 @@
 <% if @new_bookings.any? %>
-  <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+  <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2 w-100" style='display: block'>
     <h3>New bookings:</h3>
   </div>
-  <div class="container">
-      <% @new_bookings.each do |booking| %>
-        <div class="row mx-auto my-3 p-3 justify-content-center border border-dark">
-          <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center">
-            <%= cl_image_tag(booking.counselor.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
-            <p>with <%= booking.counselor.last_name %> <%= booking.counselor.first_name %></p>
-          </div>
-          <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left">
-            <% date = booking.start_time %>
-            <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
-            <p>Mode: <%= booking.mode %></p>
-          </div>
+  <div class="container w-100">
+    <% @new_bookings.each do |booking| %>
+      <div class="row mx-auto my-3 p-3 justify-content-center border border-dark w-100">
+        <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center w-100">
+          <%= cl_image_tag(booking.counselor.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+          <p>with <%= booking.counselor.last_name %> <%= booking.counselor.first_name %></p>
         </div>
-      <% end %>
+        <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left w-100">
+          <% date = booking.start_time %>
+          <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
+          <p>Mode: <%= booking.mode %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>
