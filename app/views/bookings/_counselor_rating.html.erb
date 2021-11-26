@@ -8,12 +8,16 @@
     </div>
     <% if @booking.rating.present? %>
       <p>Student's rating is <strong><%= @booking.rating %> / 5</strong>.</p>
-      <% if @booking.rating == 1 || @booking.rating == 2 %>
-        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is still not feeling well.</p>
-      <% elsif @booking.rating == 3 || @booking.rating == 4 %>
-        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is feeling a little well now.</p>
-      <% elsif @booking.rating ==  5%>
-        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is really feeling better.</p>
+      <% if @booking.rating == 1%>
+        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is still feeling <strong>very bad</strong>.</p>
+      <% elsif @booking.rating == 2 %>
+        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is <strong>not really</strong> feeling well.</p>
+      <% elsif @booking.rating == 3 %>
+        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is feeling <strong>slightly better</strong>.</p>
+      <% elsif @booking.rating == 4  %>
+        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is feeling <strong>better.</strong></p>
+      <% else @booking.rating ==  5%>
+        <p><%= @booking.user.first_name %> <%= @booking.user.last_name %> is really feeling <strong>much better</strong>.</p>
       <% end %>
     <% end %>
     <p>
