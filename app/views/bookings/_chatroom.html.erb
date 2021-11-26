@@ -22,10 +22,10 @@
   <%# Text input %>
   <div class="chatroom-text-box">
     <%= simple_form_for [ @booking, @message ], remote: true do |f| %>
-      <div class='page-frame-footer d-flex'>
-        <%= f.input :content, label: false, placeholder: "Aa" %>
+      <div class='page-frame-footer d-flex' style="align-items: center; height: 3rem; justify-content: space-between">
+        <%= f.input :content, label: false, placeholder: "Aa", wrapper_html: {class: 'flex-grow-1'}, input_html: {style: 'border-radius: 20px;'} %>
         <%= f.button :button do %>
-          <i class="fas fa-paper-plane"></i>
+          <i class="fas fa-paper-plane" style="color: white;"></i>
         <% end %>
       </div>
     <% end %>
