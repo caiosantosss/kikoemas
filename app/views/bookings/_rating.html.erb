@@ -1,8 +1,8 @@
-<div class="mx-auto my-3 w-100" style='width: 500px'>
+<div class="mx-auto my-3 w-100">
   <h1>Session has ended</h1>
 </div>
 <%# Counselor, Time, Mode %>
-<div class="form mx-auto w-100 justify-content-center" style='width: 500px'>
+<div class="form mx-auto w-100 justify-content-center">
   <%= simple_form_for @booking, method: :patch do |f| %>
     <%= f.input :rating, label: 'Are you feeling better now?',
       as: :radio_buttons,
