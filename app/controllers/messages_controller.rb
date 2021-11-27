@@ -9,7 +9,11 @@ class MessagesController < ApplicationController
     if @message.save
       BookingChannel.broadcast_to(
         @booking,
-        render_to_string(partial: "message", locals: { message: @message, sender: false })
+        [
+          @message.sender_id,
+          render_to_string(partial: "message", locals: { message: @message, sender: true }),
+          render_to_string(partial: "message", locals: { message: @message, sender: false })
+        ]
       )
       redirect_to booking_path(@booking, anchor: "message-#{@message.id}")
     else
