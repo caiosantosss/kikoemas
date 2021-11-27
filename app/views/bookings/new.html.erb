@@ -1,34 +1,38 @@
-<%= render 'shared/navbar' %>
-<div class="booking-title my-3">
-  <h3 class="book-a-session">Book a Session</h3>
+<div class="page">
+  <%= render 'shared/navbar' %>
+  <div class="body-frame">
+    <div class="booking-title my-3">
+      <h3 class="book-a-session">Book a Session</h3>
+    </div>
+    <%# Counselor, Time, Mode %>
+    <div class="counselors-form mx-auto justify-content-center">
+      <%= simple_form_for @booking do |f| %>
+        <%= f.association :counselor, label: 'Counselors',
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper d-flex',
+          item_wrapper_class: 'category-counselor mx-3',
+          input_html: {class: 'category-selector'},
+          collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 80, width: 80, radius: 'max', class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
+      #     <div class="middle">
+      #   <div class="text">Chosen</div>
+      # </div>
+        %>
+        <%= f.input :start_time, label: 'Start Time', minute_step: 30, html5: true%>
+        <%= f.input :end_time, label: 'End Time', minute_step: 30, html5: true %>
+        <%= f.input :mode, label: 'Mode',
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper d-flex',
+          item_wrapper_class: 'category-mode mx-3',
+          input_html: {class: 'category-selector'},
+          collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
+        %>
+        <%= f.hidden_field :in_session, value: false, as: :boolean %>
+        <%= f.hidden_field :emergency, value: false, as: :boolean %>
+        <%= f.button :submit, 'Submit', class: 'new-submit-btn' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
 </div>
-<%# Counselor, Time, Mode %>
-<div class="counselors-form mx-auto justify-content-center">
-  <%= simple_form_for @booking do |f| %>
-    <%= f.association :counselor, label: 'Counselors',
-      as: :radio_buttons,
-      collection_wrapper_tag: 'div',
-      collection_wrapper_class: 'category-wrapper d-flex',
-      item_wrapper_class: 'category-counselor mx-3',
-      input_html: {class: 'category-selector'},
-      collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 80, width: 80, radius: 'max', class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
-  #     <div class="middle">
-  #   <div class="text">Chosen</div>
-  # </div>
-    %>
-    <%= f.input :start_time, label: 'Start Time', minute_step: 30, html5: true%>
-    <%= f.input :end_time, label: 'End Time', minute_step: 30, html5: true %>
-    <%= f.input :mode, label: 'Mode',
-      as: :radio_buttons,
-      collection_wrapper_tag: 'div',
-      collection_wrapper_class: 'category-wrapper d-flex',
-      item_wrapper_class: 'category-mode mx-3',
-      input_html: {class: 'category-selector'},
-      collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
-    %>
-    <%= f.hidden_field :in_session, value: false, as: :boolean %>
-    <%= f.hidden_field :emergency, value: false, as: :boolean %>
-    <%= f.button :submit, 'Submit', class: 'new-submit-btn' %>
-  <% end %>
-</div>
-<%= render 'shared/footer' %>
