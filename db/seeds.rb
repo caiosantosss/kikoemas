@@ -15,6 +15,7 @@ Counselor.destroy_all
 School.destroy_all
 Booking.destroy_all
 Message.destroy_all
+DailyEmotion.destroy_all
 
 puts 'Database cleaned'
 puts 'Creating School......'
