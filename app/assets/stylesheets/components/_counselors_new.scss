@@ -109,11 +109,9 @@ color: white;
   transition-duration: 0.4s;
   color: white;
    background: $kikoe-blue;
-   box-shadow:
-       inset 0 -3em 3em rgba(0,0,0,0.1),
-             0 0  0 2px rgb(255,255,255),
-             0.3em 0.3em 1em rgba(0,0,0,0.3);
-
+  box-shadow:
+       inset 0 -3em 3em rgba(185, 7, 7, 0.1),
+             0 0  0 2px $kikoe-blue,
 }
 .form-check-input.is-valid ~ .form-check-label:hover {
  background-color: #ad80fa;
