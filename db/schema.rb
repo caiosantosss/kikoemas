@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_25_074130) do
+ActiveRecord::Schema.define(version: 2021_11_29_030518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(version: 2021_11_25_074130) do
     t.index ["school_id"], name: "index_counselors_on_school_id"
   end
 
+  create_table "daily_emotions", force: :cascade do |t|
+    t.datetime "date"
+    t.bigint "user_id", null: false
+    t.integer "emotion", default: 0
+    t.index ["user_id"], name: "index_daily_emotions_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string "content"
     t.integer "booking_id"
@@ -108,5 +115,6 @@ ActiveRecord::Schema.define(version: 2021_11_25_074130) do
   add_foreign_key "bookings", "counselors"
   add_foreign_key "bookings", "users"
   add_foreign_key "counselors", "schools"
+  add_foreign_key "daily_emotions", "users"
   add_foreign_key "users", "schools"
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
   get '/dashboard', to: 'users#dashboard', as: :user_dashboard
+  get '/users/:id', to: 'users#show', as: :user
   get 'counselors/dashboard', to: 'counselors#dashboard', as: :counselor_dashboard
   get 'counselors/bookings', to: 'counselors#bookings', as: :counselor_bookings
 end
