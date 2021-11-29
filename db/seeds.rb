@@ -124,6 +124,20 @@ counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png
 
 puts 'Counselors created'
 
+puts 'Creating daily emotions...'
+[user1, user2, user3].each do |user|
+  num = 0
+  30.times do
+    num += 1
+    daily_report = DailyEmotion.new(
+      date: Time.now - (30 + num).days,
+      emotion: rand(6)
+    )
+    daily_report.user = user
+    daily_report.save!
+  end
+end
+puts 'Daily emotions created'
 # test for messageable
 
 # booking = Booking.create
