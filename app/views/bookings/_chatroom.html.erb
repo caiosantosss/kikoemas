@@ -1,6 +1,6 @@
 <div class="page-frame-content">
   <div class="top-head">
-    <p class='ml-4' style="margin-bottom: 0; color: rgba(249, 250, 253, 1)"><%= current_user.nil? ? @counselor.first_name : @user.first_name %></p>
+    <p class='ml-4' style="margin-bottom: 0; color: rgba(249, 250, 253, 1)"><%= current_user.nil? ? @user.first_name : @counselor.first_name %></p>
     <%= simple_form_for @booking do |f|  %>
       <%= f.hidden_field :in_session, value: false, as: :boolean %>
       <div class="top-head-button">
@@ -10,7 +10,8 @@
   </div>
   <%# Message body %>
   <div class="page-frame-body">
-    <div id="messages" data-booking-id="<%= @booking.id %>">
+    <%# messagesContainer %>
+    <div id="messages" data-booking-id="<%= @booking.id %>" data-user-id="<%=current_counselor&.id || current_user&.id%>">
       <div class="text-center my-2">
         <small><%= @booking.created_at.strftime("%a %b %e") %></small>
       </div>

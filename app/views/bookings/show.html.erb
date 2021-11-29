@@ -2,10 +2,18 @@
   <%= render 'chatroom' %>
 <% elsif @booking.in_session == false %>
   <% if current_user %>
-    <%= render 'shared/navbar' %>
-    <%= render 'rating' %>
+    <div class="page">
+      <%= render 'shared/navbar' %>
+      <div class="body-frame">
+        <%= render 'rating' %>
+      </div>
+    </div>
   <% else %>
-    <%= render 'shared/navbar' %>
-    <%= render 'counselor_rating' %>
+    <div class="page">
+      <%= render 'shared/navbar' %>
+      <div class="body-frame">
+        <%= render 'counselor_rating' %>
+      </div>
+    </div>
   <% end %>
 <% end %>

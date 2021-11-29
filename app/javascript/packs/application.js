@@ -32,6 +32,12 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initBookingCable();
+  //For tool tip
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 });
 
 import "controllers"
+
+import "chartkick/chart.js"

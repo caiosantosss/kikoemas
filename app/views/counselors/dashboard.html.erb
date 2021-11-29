@@ -1,17 +1,34 @@
-<%= render 'shared/navbar' %>
-<% current_counselor.bookings.map do |booking| %>
-  <% if booking.in_session == true %>
-    <div class="sos btn d-flex justify-content-center p-3 m-3 position-relative">
-      <%= link_to '', booking_path(booking), class: 'card-link' %>
-      <div class="emergency-request">
-        <div class="user-pic">
-          <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+<div class="page">
+  <%= render 'shared/navbar' %>
+  <div class="body-frame">
+    <% current_counselor.bookings.map do |booking| %>
+      <% if booking.in_session == true %>
+        <div class="sos btn d-flex justify-content-center p-3 m-3 position-relative">
+          <%= link_to '', booking_path(booking), class: 'card-link' %>
+          <div class="emergency-request">
+            <div class="user-pic">
+              <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+            </div>
+            <p class='sub-title'><strong>EMERGENCY REQUEST</strong></p>
+            <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+          </div>
         </div>
-        <p class='sub-title'><strong>EMERGENCY REQUEST</strong></p>
-        <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-        <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+      <% end %>
+    <% end %>
+    <div class="chart mx-3">
+      <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+        <h3>Weekly Report</h3>
       </div>
+      <%= line_chart User.group_by_week(:created_at).count %>
     </div>
-  <% end %>
-<% end %>
-<%= render 'shared/footer_counselor' %>
+    <div class="chart mx-3">
+      <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+        <h3>Monthly Report</h3>
+      </div>
+      <%= line_chart User.group_by_week(:created_at).count %>
+      <%= pie_chart User.group_by_week(:created_at).count %>
+    </div>
+  </div>
+  <%= render 'shared/footer_counselor' %>
+</div>
