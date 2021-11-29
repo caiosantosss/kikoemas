@@ -2,6 +2,10 @@ class CounselorsController < ApplicationController
   after_action :set_as_read, only:[:bookings]
   def dashboard
     @counselor = current_counselor
+    @students = User.all
+    @days_in_week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat']
+    @emotions = DailyEmotion.emotions.keys
+    @daily_reports = DailyEmotion.all
     authorize current_counselor
   end
 

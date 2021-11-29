@@ -16,18 +16,24 @@
         </div>
       <% end %>
     <% end %>
-    <div class="chart mx-3">
-      <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
-        <h3>Weekly Report</h3>
-      </div>
-      <%= line_chart User.group_by_week(:created_at).count %>
+    <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+      <h3>Weekly Report</h3>
     </div>
-    <div class="chart mx-3">
-      <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
-        <h3>Monthly Report</h3>
-      </div>
-      <%= line_chart User.group_by_week(:created_at).count %>
-      <%= pie_chart User.group_by_week(:created_at).count %>
+    <div class="chart mx-2 my-3">
+      <%= line_chart @emotions.map { |emotion| {name: emotion, data: @daily_reports.where(emotion: emotion).group_by_day_of_week(:date, format: "%a").count} },
+       xtitle: "Days of Week", ytitle: "Number of students", labels: { fontSize: 10, backgroundColor: "none", fontColor: "rgba(205, 208, 246, 1)"}, colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)","rgba(246, 148, 183, 1)", "rgb(131, 207, 218)"]%>
+    </div>
+    <div class="chart mx-3 my-3">
+      <%= line_chart User.first.daily_emotions.group_by_day_of_week(:date).sum(:emotion), colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"] %>
+    </div>
+    <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+      <h3>Monthly Report</h3>
+    </div>
+    <div class="chart mx-3 my-3">
+      <%= column_chart @daily_reports.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count, colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"] %>
+    </div>
+    <div class="chart mx-3 my-3">
+      <%= pie_chart User.first.daily_emotions.group(:emotion).count, colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)",'rgba(246, 148, 183, 1)', 'rgb(131, 207, 218)', 'rgba(205, 208, 246, 1)'] %>
     </div>
   </div>
   <%= render 'shared/footer_counselor' %>
