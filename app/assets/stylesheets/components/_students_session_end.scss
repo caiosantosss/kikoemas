@@ -1,0 +1,94 @@
+
+
+.category-wrapper2 {
+  // justify-content: space-between;
+  display: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.card-height-315 {
+  height: 320px;
+}
+
+.category-counselor {
+  flex: 0 0 30%;
+  text-align: center;
+}
+
+.category-selector2 {
+  position: absolute;
+  transform: scale(0);
+  align-content: center;
+  text-align: center;
+}
+
+
+.category-selector2 + label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 5px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+}
+
+label{
+   font-weight: 600;
+   color: white;
+  img{
+    border-radius: 50%;
+    //  box-shadow:
+    //    inset 0 -3em 3em rgba(0,0,0,0.1),
+    //          0 0  0 2px rgb(255,255,255),
+    //          0.3em 0.3em 1em rgba(0,0,0,0.3);
+    opacity: 1;
+     transition: .5s ease;
+  backface-visibility: hidden;
+  }
+  img:hover{
+     opacity: 0.3;
+  }
+}
+// raise a ticket asap tom
+
+// .middle {
+//   transition: .5s ease;
+//   opacity: 0;
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   -ms-transform: translate(-50%, -50%);
+//   text-align: center;
+// }
+// .text {
+//   background-color: #04AA6D;
+//   color: white;
+//   font-size: 16px;
+//   padding: 16px 32px;
+// }
+
+// .category-selector2:checked + label {
+//   color: $kikoe-pink !important;
+// }
+
+// .form-check-input.is-valid ~ .form-check-label {
+//   transition-duration: 0.4s;
+//   color: white;
+//    background: $kikoe-blue;
+// }
+// .form-check-input.is-valid ~ .form-check-label:hover {
+//  background-color: #ad80fa;
+//   color: white;
+// }
+@media only screen and (max-width: 600px) {
+  // body {
+  //   background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+  // }
+}

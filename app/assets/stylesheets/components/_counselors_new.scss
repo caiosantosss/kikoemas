@@ -33,12 +33,6 @@
 
 }
 
-.category-wrapper2 {
-  // justify-content: space-between;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
 .card-height-315 {
   height: 320px;
 }
@@ -53,15 +47,16 @@
 }
 
 .category-selector + label {
-    display: block;
-    cursor: pointer;
-    width: 100%;
-    font-size: 12px;
-    text-align: left;
-    padding: 5px;
-    border-radius: 4px;
-    color: white;
+  display: block;
+  cursor: pointer;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 5px;
+  border-radius: 4px;
+  color: white;
 }
+
 label{
    font-weight: 600;
    color: white;
