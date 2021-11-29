@@ -132,7 +132,7 @@ puts 'Creating daily emotions...'
     num += 1
     daily_report = DailyEmotion.new(
       date: Time.now - (30 + num).days,
-      emotion: rand(6)
+      emotion: rand(5)
     )
     daily_report.user = user
     daily_report.save!
