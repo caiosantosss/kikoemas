@@ -1,0 +1,9 @@
+<% if current_counselor %>
+  <div class="contact-button text-center">
+    <button class="btn btn-primary" type="submit">Contact?</button>
+  </div>
+<% end %>
+<%= render "student_profile" %>
+<%= render "monthly_individual_report" %> <br>
+<br>
+<%= render "past_session", bookings: @past_bookings %>

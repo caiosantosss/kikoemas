@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   def dashboard
+    @past_bookings = current_user.past_bookings
   end
 
-  def most_recent_past_booking(user)
-    past = user.bookings.where('start_time < ?', Time.now)
-    return past.map { |booking| Time.now - booking.start_time }.min
+  def show
+    @user = User.find(params[:id])
+    @past_bookings = @user.past_bookings
   end
 end

@@ -1,6 +1,8 @@
 <div class="page">
   <div class="body-frame">
-    <h1>Users#dashboard</h1>
+    <%= render "past_session" %>
+    <%# display a message here "counselor was worried...." %>
   </div>
+  <%= render 'past_session', bookings: @past_bookings %>
   <%= render 'shared/footer' %>
 </div>
