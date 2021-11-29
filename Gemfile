@@ -33,7 +33,6 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'groupdate'
 gem "chartkick"
-gem 'groupdate'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
