@@ -13,10 +13,8 @@
           collection_wrapper_class: 'category-wrapper d-flex',
           item_wrapper_class: 'category-counselor mx-3',
           input_html: {class: 'category-selector'},
-          collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 80, width: 80, radius: 'max', class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
-      #     <div class="middle">
-      #   <div class="text">Chosen</div>
-      # </div>
+          #how to change thne color of an image whe I choose one image
+          collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 100, width: 100, radius: 'max', title:counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
         %>
         <%= f.input :start_time, label: 'Start Time', minute_step: 30, html5: true%>
         <%= f.input :end_time, label: 'End Time', minute_step: 30, html5: true %>
