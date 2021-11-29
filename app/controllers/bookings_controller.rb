@@ -47,6 +47,8 @@ class BookingsController < ApplicationController
     authorize @booking
     @booking.update(booking_params)
     if current_user
+      return redirect_to params[:redirect][:path] if params[:redirect]
+
       redirect_to booking_path(@booking)
     else
       redirect_to counselor_bookings_path
