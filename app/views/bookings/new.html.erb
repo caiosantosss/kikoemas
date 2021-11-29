@@ -16,8 +16,8 @@
           #how to change thne color of an image whe I choose one image
           collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 100, width: 100, radius: 'max', title:counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
         %>
-        <%= f.input :start_time, label: 'Start Time', minute_step: 30, html5: true%>
-        <%= f.input :end_time, label: 'End Time', minute_step: 30, html5: true %>
+        <%= f.input :start_time, as: :string, label: 'Start Time', input_html: {class: "datepicker"}%>
+        <%= f.input :end_time, as: :string, label: 'End Time', input_html: {class: "datepicker"} %>
         <%= f.input :mode, label: 'Mode',
           as: :radio_buttons,
           collection_wrapper_tag: 'div',

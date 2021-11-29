@@ -1,0 +1,5 @@
+.no-validation {
+  input.is-valid ~ label.form-check-label, input.is-invalid ~ label.form-check-label {
+    color: inherit;
+  }
+}
