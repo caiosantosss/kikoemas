@@ -35,3 +35,5 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 import "controllers"
+
+import "chartkick/chart.js"
