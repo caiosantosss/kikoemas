@@ -14,16 +14,15 @@
       collection: [['Very bad', 1], ['Not really', 2], ['Slightly better', 3], ['Better', 4], ['Much Better', 5]]
     %>
     </div>
-    <div class="mt-4">
-      <p><strong>Would you like to book a session?</strong></p>
-      <div class="d-flex yes-button">
+    <div class="mt-4 justify-content-center row">
+      <div class="yes-button">
         <%= simple_fields_for :redirect do |o| %>
-          <%= o.input :path,
+          <%= o.input :path, placeholder: "path", label: 'Would you like to book a session?', :required => false,
             as: :radio_buttons,
-            collection_wrapper_tag: 'div',
-            item_wrapper_class: 'btn btn-primary',
-            collection_wrapper_class: 'd-flex',
-            input_html: {class: 'btn btn-primary', onchange: 'this.form.submit()'},
+            collection_wrapper_tag: 'div text-center',
+            item_wrapper_class: 'btn btn-primary wrapperbtn border-btn',
+            collection_wrapper_class: 'd-flex justify-content-center',
+            input_html: {class: 'btn btn-primary category-selector3', onchange: 'this.form.submit()'},
             collection: [['Yes', new_booking_path], ['No', root_path]]
           %>
         <% end %>

@@ -1,14 +1,10 @@
 
-.rating-card {
+.rating-card{
   .category-wrapper2 {
     // justify-content: space-between;
     display: row;
     flex-wrap: wrap;
     text-align: center;
-  }
-
-  .card-height-315 {
-    height: 320px;
   }
 
   .category-counselor {
@@ -21,8 +17,22 @@
     transform: scale(0);
     align-content: center;
     text-align: center;
+    justify-content: space-around;
   }
 
+  .category-selector3 {
+    transform: scale(0);
+    justify-content: space-around;
+  }
+
+  .wrapperbtn {
+    margin: 5px;
+    padding: 15px 30px;
+  }
+
+  .border-btn {
+    border-radius: 10px;
+  }
 
   .category-selector2 + label {
     display: block;
@@ -48,5 +58,42 @@
     img:hover{
       opacity: 0.3;
     }
+  }
+  .col-form-label {
+    font-weight: 600;
+    color: white;
+  }
+  .category-selector:checked + label {
+    color: $kikoe-pink !important;
+
+  }
+  .new-submit-btn{
+    transition-duration: 0.4s;
+    background-color: $kikoe-blue;
+    border-radius: 4px;
+    color: white;
+    margin-top: 15px;
+  }
+  .new-submit-btn:hover{
+    background-color: #ad80fa;
+    color: white;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+    0 0  0 2px rgb(255,255,255),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+  }
+  .form-check-input.is-valid ~ .form-check-label {
+    transition-duration: 0.4s;
+    color: white;
+    background: $kikoe-blue;
+    box-shadow:
+    inset 0 -3em 3em rgba(0,0,0,0.1),
+    0 0  0 2px rgb(255,255,255),
+    0.3em 0.3em 1em rgba(0,0,0,0.3);
+
+  }
+  .form-check-input.is-valid ~ .form-check-label:hover {
+    background-color: #ad80fa;
+    color: white;
   }
 }
