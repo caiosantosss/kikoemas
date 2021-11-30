@@ -9,7 +9,7 @@
     <% end %>
   </div>
   <%# Message body %>
-  <div class="page-frame-body">
+  <div class="page-frame-body col-md-8">
     <%# messagesContainer %>
     <div id="messages" data-booking-id="<%= @booking.id %>" data-user-id="<%=current_counselor&.id || current_user&.id%>">
       <div class="text-center my-2">
