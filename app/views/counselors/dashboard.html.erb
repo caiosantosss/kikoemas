@@ -41,6 +41,7 @@
       <%= column_chart @daily_reports.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count.map {|key, value| [key, (value.to_f/User.all.count/Time.days_in_month((Time.now - 1.month).month, (Time.now - 1.month).year)*100).round(2)]}.to_h, min: '0%', max: '50%', suffix: "%", colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"]%>
     </div>
     <div class="chart mx-3 my-3">
+      <p>Average Mood of Students in <%= (Time.now - 1.month).strftime("%B") %></p>
       <%= pie_chart @daily_reports.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count.map {|key, value| [key, (value.to_f/User.all.count/Time.days_in_month((Time.now - 1.month).month, (Time.now - 1.month).year)*100).round(2)]}.to_h, suffix: "%", colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)",'rgba(246, 148, 183, 1)', 'rgb(131, 207, 218)', 'rgba(205, 208, 246, 1)'] %>
     </div>
   </div>
