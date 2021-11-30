@@ -131,6 +131,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/77267436?v=4")
 counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
+
+puts 'Creating random students'
+
 rando_students = []
 10.times do
   user = User.create!(
@@ -174,7 +177,10 @@ end
   rando_students << user
 end
 
+puts 'Finished the random users'
+
 puts 'Creating daily emotions...'
+
 rando_students.each do |user|
   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
     daily_report = DailyEmotion.new(
@@ -185,8 +191,9 @@ rando_students.each do |user|
     daily_report.save!
   end
 end
-[user1, user2, user3].each do |user|
-  ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
+
+[user2, user3].each do |user|
+  ((Date.today - 2.month).beginning_of_month..(Date.today - 1)).each do |date|
     daily_report = DailyEmotion.new(
       date: date,
       emotion: rand(5)
@@ -195,6 +202,54 @@ end
     daily_report.save!
   end
 end
+
+puts 'Creating daily emotions to Ryota'
+
+[user1].each do |user|
+  ((Date.today - 2.month).beginning_of_month...(Date.today - 4)).each do |date|
+    daily_report = DailyEmotion.new(
+      date: date,
+      emotion: rand(5)
+    )
+    daily_report.user = user
+    daily_report.save!
+  end
+end
+
+puts 'Deleting 4 last days to Ryota Daily emotions'
+
+daily_report_ryota = DailyEmotion.new(
+  date: Date.today - 1,
+  emotion: 0,
+  user_id: user1
+)
+daily_report_ryota.user = user1
+daily_report_ryota.save!
+
+daily_report_ryota = DailyEmotion.new(
+  date: Date.today - 2,
+  emotion: 0,
+  user_id: user1
+)
+daily_report_ryota.user = user1
+daily_report_ryota.save!
+
+daily_report_ryota = DailyEmotion.new(
+  date: Date.today - 3,
+  emotion: 0,
+  user_id: user1
+)
+daily_report_ryota.user = user1
+daily_report_ryota.save!
+
+daily_report_ryota = DailyEmotion.new(
+  date: Date.today - 4,
+  emotion: 0,
+  user_id: user1
+)
+daily_report_ryota.user = user1
+daily_report_ryota.save!
+
 puts 'Daily emotions created'
 # test for messageable
 
