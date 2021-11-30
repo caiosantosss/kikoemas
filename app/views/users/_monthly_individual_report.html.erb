@@ -1,9 +1,8 @@
 <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
   <h3 style= "font-size:20px">***Monthly Individual Report***</h3>
 </div>
-<%#  (all students) average mood for a month (#{mood}days + ... + #{mood}days) / number of ppl / days of month %>
-<%# @daily_reports.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count/User.all.count/Time.days_in_month((Time.now - 1.month).month, (Time.now - 1.month).year) %>
 <div class="chart mx-3 my-3">
-  <p>Average Mood of Students in <%= (Time.now - 1.month).strftime("%B") %></p>
-  <%= line_chart current_user.daily_emotions.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count.map {|key, value| [key, (value.to_f/User.all.count/Time.days_in_month((Time.now - 1.month).month, (Time.now - 1.month).year)*100).round(2)]}.to_h, min: '0%', max: '50%', suffix: "%", colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"]%>
+  <p>Your daily emotions on <%= (Time.now - 1.month).strftime("%B") %></p>
+  <%= line_chart current_user.daily_emotions.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group_by_day(:date).count %>
+  <%#= line_chart current_user.daily_emotions.where('date >= ? AND date <= ?', (Time.now - 1.month).at_beginning_of_month, (Time.now - 1.month).at_end_of_month).group(:emotion).count.map {|key, value| [key, (value.to_f/User.all.count/Time.days_in_month((Time.now - 1.month).month, (Time.now - 1.month).year)*100).round(2)]}.to_h, min: '0%', max: '50%', suffix: "%", colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"]%>
 </div>
