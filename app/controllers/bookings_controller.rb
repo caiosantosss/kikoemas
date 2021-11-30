@@ -46,11 +46,18 @@ class BookingsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = Booking.find(params[:id])
+    @counselors = Counselor.all
+  end
+
   def update
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.update(booking_params)
-    if current_user
+    if @booking.suggested
+      redirect_to bookings_path
+    elsif current_user
       return redirect_to params[:redirect][:path] if params[:redirect]
 
       redirect_to booking_path(@booking)
