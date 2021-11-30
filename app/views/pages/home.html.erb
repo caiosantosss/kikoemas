@@ -8,11 +8,28 @@
         <i class="far fa-laugh-beam"></i>
         <i class="far fa-smile-beam"></i>
         <i class="far fa-meh"></i>
+        <i class="far fa-frown"></i>
         <i class="far fa-sad-tear"></i>
-        <i class="far fa-tired"></i>
-        <i class="far fa-angry"></i>
       </div>
     </div>
+    <% unless current_user.nil? || current_user.emotion_today? %>
+      <div class="emotion-form">
+        <%= simple_form_for @daily_emotion, remote: true do |f| %>
+          <div class="mx-auto w-100 justify-content-center text-center">
+            <%= f.input :emotion,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector', onchange: 'this.form.submit()'},
+              collection: DailyEmotion.emotions.keys.map { |key| [sanitize('<i class="far fa-laugh-beam"></i>'), key]}
+            %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>You already answerd</p>
+    <% end %>
     <h3 class='sos-text mt-3 text-center'>--- I need help now ---</h3>
     <div class='sos m-3 p-4'>
       <div class='online-counselors'>
