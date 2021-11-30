@@ -33,6 +33,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'groupdate'
 gem "chartkick"
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'

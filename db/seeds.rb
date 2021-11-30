@@ -8,6 +8,7 @@
 
 require 'open-uri'
 require 'json'
+require 'faker'
 
 puts puts 'Cleaning up database...'
 User.destroy_all
@@ -34,7 +35,9 @@ user1 = User.create!(
   phone_number: "080 45454646",
   address: "212-1086, Kinutakoen, Setagaya-ku, Tokyo",
   password: '123456',
-  school: school1
+  school: school1,
+  grade: 1,
+  classroom: 'A'
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/76512208?v=4")
@@ -47,7 +50,9 @@ user2 = User.create!(
   phone_number: '080 12344321',
   address: '387-1223, Ichigayakoracho, Shinjuku-ku, Tokyo',
   password: '123456',
-  school: school1
+  school: school1,
+  grade: 1,
+  classroom: 'B'
 )
 
 file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
@@ -60,7 +65,9 @@ user3 = User.create!(
   phone_number: '080 99991111',
   address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
   password: '123456',
-  school: school1
+  school: school1,
+  grade: 1,
+  classroom: 'C'
 )
 file = URI.open("https://avatars.githubusercontent.com/u/87355777?v=4")
 user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
@@ -124,14 +131,64 @@ file = URI.open("https://avatars.githubusercontent.com/u/77267436?v=4")
 counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
+rando_students = []
+10.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    password: '123456',
+    school: school1,
+    grade: 1,
+    classroom: 'A'
+  )
+  rando_students << user
+end
+
+10.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    password: '123456',
+    school: school1,
+    grade: 1,
+    classroom: 'B'
+  )
+  rando_students << user
+end
+
+10.times do
+  user = User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    email: Faker::Internet.email,
+    phone_number: Faker::PhoneNumber.cell_phone,
+    password: '123456',
+    school: school1,
+    grade: 1,
+    classroom: 'C'
+  )
+  rando_students << user
+end
 
 puts 'Creating daily emotions...'
-[user1, user2, user3].each do |user|
-  num = 0
-  30.times do
-    num += 1
+rando_students.each do |user|
+  ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
     daily_report = DailyEmotion.new(
-      date: Time.now - (30 + num).days,
+      date: date,
+      emotion: rand(5)
+    )
+    daily_report.user = user
+    daily_report.save!
+  end
+end
+[user1, user2, user3].each do |user|
+  ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
+    daily_report = DailyEmotion.new(
+      date: date,
       emotion: rand(5)
     )
     daily_report.user = user
