@@ -2,7 +2,7 @@
   <div class="wrapper text-center w-100">
     <h3 class="session-ended pt-5">The session has ended.</h3>
     <div class="user_pic text-center pt-5">
-      <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+      <%= cl_image_tag(@booking.user.photo.key, height: 80, width: 80, radius: 'max', style: "border-radius: 50%") %>
       <p class="student-name"><%= @booking.user.first_name %> <%= @booking.user.last_name %> </p>
     </div>
     <% if @booking.rating.present? %>

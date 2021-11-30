@@ -15,6 +15,26 @@
     <div class='sos m-3 p-4'>
       <div class='online-counselors'>
         <p style='margin-bottom: 0; margin-left: 16px'>Online counselors at your school:</p>
+        <%# My crazy code %>
+        <div id="carouselExampleControls" class="carousel slide d-flex" data-ride="carousel">
+          <% @counselors.each do |counselor| %>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="counselor-pic ml-2"><%= cl_image_tag(counselor.photo.key, height: 70, width: 70, radius: 'max', background: '#f4f4f4') %></div>
+                <div class='notification-online badge badge-success'>  </div>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          <% end %>
+        </div>
+        <%# end %>
         <div class="d-flex p-2">
           <% @counselors.each do |counselor| %>
             <div class="counselor-pic ml-2">

@@ -8,7 +8,7 @@
 <% else %>
   <div class="message-container-receive" id="message-<%= message.id %>">
     <div class="d-flex">
-      <%= cl_image_tag(message.sender.photo.key, height: 40, width: 40, radius: 'max', background: '#f9fafd') %>
+      <%= cl_image_tag(message.sender.photo.key, height: 30, width: 30, radius: 'max', background: '#f9fafd') %>
       <div class="chat-message-receive ml-2">
         <p><%= message.content %></p>
       </div>
