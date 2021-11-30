@@ -1,5 +1,9 @@
-<%= render "contact_form" %>
-<%= render "student_profile" %>
-<%= render "monthly_individual_report" %>
-<%= render "past_session", bookings: @past_bookings %>
-<%= render 'shared/footer' %>
+<div class="page">
+  <div class="body-frame">
+    <%= render "contact_form" %>
+    <%= render "student_profile" %>
+    <%= render "monthly_individual_report" %>
+    <%= render "past_session", bookings: @past_bookings %>
+  </div>
+  <%= render 'shared/footer_counselor' %>
+</div>

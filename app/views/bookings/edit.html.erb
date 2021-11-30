@@ -1,0 +1,36 @@
+<div class="page">
+  <%= render 'shared/navbar' %>
+  <div class="body-frame">
+    <div class="booking-title my-3">
+      <h3 class="book-a-session">Book a Session</h3>
+    </div>
+    <%# Counselor, Time, Mode %>
+    <div class="counselors-form mx-auto justify-content-center">
+      <%= simple_form_for @booking do |f| %>
+        <%= f.association :counselor, label: 'Counselors',
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper d-flex',
+          item_wrapper_class: 'category-counselor mx-3',
+          input_html: {class: 'category-selector'},
+          #how to change thne color of an image whe I choose one image
+          collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 100, width: 100, radius: 'max', title:counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img",background: '#f4f4f4'), counselor.id ] }
+        %>
+        <%= f.input :start_time, as: :string, label: 'Start Time', input_html: {class: "datepicker"}%>
+        <%= f.input :end_time, as: :string, label: 'End Time', input_html: {class: "datepicker"} %>
+        <%= f.input :mode, label: 'Mode',
+          as: :radio_buttons,
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'category-wrapper d-flex',
+          item_wrapper_class: 'category-mode mx-3',
+          input_html: {class: 'category-selector'},
+          collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
+        %>
+        <%= f.hidden_field :in_session, value: false, as: :boolean %>
+        <%= f.hidden_field :emergency, value: false, as: :boolean %>
+        <%= f.button :submit, 'Submit', class: 'new-submit-btn' %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+</div>

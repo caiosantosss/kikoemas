@@ -1,9 +1,9 @@
-<div class="contact-form">
+<div class="contact-form m-2">
   <% if current_counselor %>
     <%= simple_form_for @booking do |f| %>
       <%= f.input :suggested, as: :hidden, input_html: { value: true } %>
       <%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
-      <%= f.button :submit, "Contact?", class: 'contact-button tn btn btn-primary mx-2'%>
+      <%= f.button :submit, "Send Session Invite", class: 'contact-button tn btn btn-primary mx-2'%>
     <% end %>
   <% end %>
 </div>
