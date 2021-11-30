@@ -25,7 +25,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.mode = params[:booking][:mode].to_i
-    @booking.user = current_user
+    @booking.user = current_user if current_user
+     @booking.counselor = current_counselor if current_counselor
     if params[:booking][:emergency] == 'true'
       @booking.counselor = Counselor.all.first
       @booking.start_time = Time.now
@@ -34,6 +35,9 @@ class BookingsController < ApplicationController
     if @booking.save
       if @booking.emergency == true
         redirect_to booking_path(@booking)
+      elsif current_counselor
+        flash[:notice] = "Suggestion has been made for student."
+        redirect_to user_path(@booking.user)
       else
         redirect_to bookings_path
       end
@@ -55,10 +59,16 @@ class BookingsController < ApplicationController
     end
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to user_dashboard_path
+  end
+
   private
 
   def booking_params
-    params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency, :rating, :note)
+    params.require(:booking).permit(:counselor_id, :start_time, :end_time, :in_session, :emergency, :rating, :note, :suggested, :user_id)
   end
 
   def set_as_read

@@ -1,0 +1,7 @@
+<% if current_counselor %>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :suggested, as: :hidden, input_html: { value: true } %>
+    <%= f.input :user_id, as: :hidden, input_html: { value: @user.id } %>
+    <%= f.button :submit, "Contact?" %>
+  <% end %>
+<% end %>
