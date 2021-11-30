@@ -181,7 +181,7 @@ puts 'Finished the random users'
 
 puts 'Creating daily emotions...'
 
-[rando_students].each do |user|
+rando_students.each do |user|
   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
     daily_report = DailyEmotion.new(
       date: date,
