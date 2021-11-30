@@ -5,12 +5,7 @@
       <h3>How are you feeling today?</h2>
       <p>Record your emotion of today!</p>
       <div class="emotions d-flex justify-content-center">
-        <i class="far fa-laugh-beam"></i>
-        <i class="far fa-smile-beam"></i>
-        <i class="far fa-meh"></i>
-        <i class="far fa-frown"></i>
-        <i class="far fa-sad-tear"></i>
-        <% if current_user.nil? || current_user.emotion_today? %>
+        <% unless current_user.nil? || current_user.emotion_today? %>
           <div class="emotion-form">
             <%= simple_form_for @daily_emotion, remote: true do |f| %>
               <div class="mx-auto w-100 justify-content-center text-center">
@@ -26,7 +21,21 @@
             <% end %>
           </div>
         <% else %>
-          <p>You already answerd</p>
+          <div class="emotion-form">
+            <%= simple_form_for @daily_emotion, remote: true do |f| %>
+              <div class="mx-auto w-100 justify-content-center text-center">
+                <%= f.input :emotion,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div',
+              collection_wrapper_class: 'category-wrapper',
+              item_wrapper_class: 'category-item',
+              input_html: {class: 'category-selector', onchange: 'this.form.submit()'},
+              collection: DailyEmotion.emotions.keys.map { |key| [sanitize("<i class='#{fontawesome(key)}'></i>"), key]}
+            %>
+                <p style="padding-top: 1.5rem">Today's emotion has already benn recorded</p>
+              </div>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
