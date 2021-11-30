@@ -5,7 +5,6 @@ class DailyEmotionsController < ApplicationController
     @daily_emotion.date = Date.today
     @daily_emotion.user = current_user
     if @daily_emotion.save
-      raise
       redirect_to root_path
     end
     authorize @daily_emotion
