@@ -10,7 +10,7 @@
         <%# <%= link_to 'No', new_booking_path, class: 'yes-button mx-auto my-5', style: 'display: block' %>
         <p>Counselor's name : <strong><%= booking.counselor.last_name %> <%= booking.counselor.first_name %></strong></p>
       <% end %>
-      <%= render 'past_session', bookings: @past_bookings %>
+      <%= render "monthly_individual_report" %>
     </div>
     <%= render 'shared/footer' %>
   </div>
