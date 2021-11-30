@@ -1,9 +1,11 @@
-<h3 class="profile pt-5 text-center">Student Profile</h3>
-<div class="student-image row mx-auto my-3 p-3 justify-content-center">
-  <%= cl_image_tag(@user.photo.key, height: 120, width: 120, radius: 'max', background: '#f4f4f4') %>
-  <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center">
-    <p class="student-name"><strong>Student's name : </strong><%= @user.full_name %></p>
-    <p class="student-name"><strong>Contact Number : </strong><%= @user.phone_number%></p>
-    <p class="student-name"><strong>Address : </strong><%= @user.address %></p>
+<div class="profile-card">
+  <h3 class="student-profile pt-5 text-center "><span>***</span>Student Profile<span>***</span></h3>
+  <div class="student-picture row mx-auto my-3 p-3 justify-content-center">
+    <%= cl_image_tag(@user.photo.key, height: 120, width: 120, radius: 'max',class: 'student-image', background: '#f4f4f4') %>
+    <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center">
+      <p class="student-name"><strong>Student's name : </strong><%= @user.full_name %></p>
+      <p class="student-name"><strong>Contact Number : </strong><%= @user.phone_number%></p>
+      <p class="student-name"><strong>Address : </strong><%= @user.address %></p>
+    </div>
   </div>
 </div>
