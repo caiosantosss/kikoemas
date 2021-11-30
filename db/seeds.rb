@@ -180,8 +180,19 @@ end
 puts 'Finished the random users'
 
 puts 'Creating daily emotions...'
-rando_students + [user2, user3].each do |user|
+rando_students.each do |user|
   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
+    daily_report = DailyEmotion.new(
+      date: date,
+      emotion: rand(5)
+    )
+    daily_report.user = user
+    daily_report.save!
+  end
+end
+
+[user2, user3].each do |user|
+  ((Date.today - 2.month).beginning_of_month..(Date.today - 1)).each do |date|
     daily_report = DailyEmotion.new(
       date: date,
       emotion: rand(5)
