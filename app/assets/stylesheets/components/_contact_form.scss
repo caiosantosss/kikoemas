@@ -1,0 +1,19 @@
+.contact-form{
+text-align: center;
+
+.contact-button{
+  margin-top: 20px;
+ padding: 15px;
+  box-shadow: 3px 3px 3px #fa8480;
+  border-color: #fa8480;
+  color: #f07974;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 10%;
+}
+.contact-button:hover{
+  background-color: $kikoe-pink;
+  cursor: pointer;
+  color: black;
+}
+}

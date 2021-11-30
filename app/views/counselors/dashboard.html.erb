@@ -22,9 +22,14 @@
     <div class="chart mx-2 my-3">
       <%= line_chart @emotions.map { |emotion| {name: emotion, data: @daily_reports.where(emotion: emotion).where('date >= ? AND date <= ?', (Date.today - 1.week).beginning_of_week, (Date.today - 1.week).end_of_week).group_by_day_of_week(:date, format: "%a").count} },
        ytitle: 'number of students', labels: { fontSize: 10, backgroundColor: "none", fontColor: "rgba(205, 208, 246, 1)"}, colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)","rgba(246, 148, 183, 1)", "rgb(131, 207, 218)"]%>
+      <p>Daily emotion report of all students on each day of the week</p>
+      <p>(last week)</p>
     </div>
     <div class="chart mx-3 my-3">
-      <%= line_chart User.first.daily_emotions.group_by_day_of_week(:date).sum(:emotion), colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"] %>
+      <%# bar_chart @emotions.map {|emotion| {name: emotion, data: @daily_reports.joins(:user).where(users: {grade: 1, classroom: 'A'}).where(emotion: emotion).where('date >= ? AND date <= ?', (Date.now - 1.week).beginning_of_week, (Date.now - 1.week).end_of_week).group_by_days_of_week(:date).count},
+       colors: ["rgba(145, 178, 253, 1)", "rgba(173, 128, 250, 1)"], stacked: true %>
+      <p>Daily emotion report of 1-A on each day of the week</p>
+      <p>(last week)</p>
     </div>
     <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
       <h3>Monthly Report</h3>
