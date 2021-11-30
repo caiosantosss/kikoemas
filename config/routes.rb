@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :counselors
   devise_for :users
   root to: 'pages#home'
+  resources :daily_emotions, only: [:create]
   # bookings #index #new #create #update
   # users #dashboard
   # counselors #dashboard get '/counselor'
