@@ -200,7 +200,7 @@ puts 'Daily emotions to Ryota'
 
 daily_report_ryota = DailyEmotion.new(
   date: Date.today - 1,
-  emotion: 1,
+  emotion: 0,
   user_id: user1
 )
 daily_report_ryota.user = user1
@@ -208,7 +208,7 @@ daily_report_ryota.save!
 
 daily_report_ryota = DailyEmotion.new(
   date: Date.today - 2,
-  emotion: 1,
+  emotion: 0,
   user_id: user1
 )
 daily_report_ryota.user = user1
@@ -216,7 +216,7 @@ daily_report_ryota.save!
 
 daily_report_ryota = DailyEmotion.new(
   date: Date.today - 3,
-  emotion: 1,
+  emotion: 0,
   user_id: user1
 )
 daily_report_ryota.user = user1
@@ -224,7 +224,7 @@ daily_report_ryota.save!
 
 daily_report_ryota = DailyEmotion.new(
   date: Date.today - 4,
-  emotion: 1,
+  emotion: 0,
   user_id: user1
 )
 daily_report_ryota.user = user1
