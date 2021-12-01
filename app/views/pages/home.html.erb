@@ -6,7 +6,7 @@
         <%= render 'emotions_home', daily_emotion: @daily_emotion %>
       <% else %>
         <div class="flex-row">
-          <p class='d-flex text-center mt-4'>Your emotion today, <%= Date.today.strftime("%A") %>, is <%= current_user.daily_emotions.last.emotion %></p>
+          <h4 class='d-flex text-center mt-4 justify-content-center'>Your emotion today, <%= Date.today.strftime("%A") %>, is <%= current_user.daily_emotions.last.emotion %></h4>
           <%= render 'weekly_individual_report' %>
           <%# <p class='d-flex justify-content-center' style="padding-top: 1.5rem">Today's emotion has been recorded</p>
           <p class='d-flex justify-content-center'style="padding-top: 1.5rem">Thank you!</p> %>
