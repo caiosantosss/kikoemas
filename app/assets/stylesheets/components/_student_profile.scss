@@ -1,7 +1,7 @@
 .profile-card{
   padding: 10px;
   margin: 0 auto;
-  height: 475px;
+  height: 390px;
   width: 85%;
   background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
   box-shadow: 0px 0px 5px grey;
@@ -17,10 +17,12 @@
     transition: .5s ease;
     backface-visibility: hidden;
   }
-  .p{
-    color: white;
-    padding: 10px 20px;
-    width: 400px;
-    margin: 0 20px;
+  .student-name{
+    text-align: center;
+    margin-top: 20px;
   }
+.student-contact{
+  font-family: $body-font;
+}
+
 }

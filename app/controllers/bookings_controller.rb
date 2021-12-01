@@ -37,7 +37,8 @@ class BookingsController < ApplicationController
       if @booking.emergency == true
         redirect_to booking_path(@booking)
       elsif current_counselor
-        flash[:notice] = "Suggestion has been made for student."
+        sweetalert_success("Invitation has been sent to the student.", "Sent!", persistent: "Done")
+        # flash[:notice] = "Invitation has been sent to the student"
         redirect_to user_path(@booking.user)
       else
         redirect_to bookings_path
