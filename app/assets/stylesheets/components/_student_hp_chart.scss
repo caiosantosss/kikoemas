@@ -1,15 +1,4 @@
-.user-pic {
-  img {
-    border-radius: 50%;
-  }
-}
-
-.emergency-request .sub-title{
-  margin-top: 10px;
-
-}
-
-.monthly-individual-report {
+.student-hp-chart {
   .weekly_report {
     .date_set{
       height: 80px;
@@ -19,18 +8,16 @@
       vertical-align: middle;
       i {
         font-size: 25px;
-        color: #ad80fa;
+        color: $kikoe-white;
       }
       p {
         font-size: 16px;
         margin: 0;
-        background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+        background-image: $kikoe-white;
         background-clip: text;
         background-size: 100%;
         -webkit-background-clip: text;
         -moz-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -moz-text-fill-color: transparent;
       }
     }
   }
