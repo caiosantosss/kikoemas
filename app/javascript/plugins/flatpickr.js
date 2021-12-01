@@ -6,7 +6,8 @@ const initFlatpickr = () => {
     allowInput: true,
     enableTime: true,
     minDate: "today",
-    minuteIncrement: 30
+    minuteIncrement: 30,
+    disableMobile: "true"
   });
 }
 
