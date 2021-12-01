@@ -1,8 +1,66 @@
 .attention_pic {
-  width: 100px;
+  width: 120px;
+  height: 180px;
   text-align: center;
-  margin: 5px;
+  // margin: 20px;
+  background-image: linear-gradient(45deg, rgba(246, 148, 183, 1) 5%, #fa8480 69%, rgba(246, 148, 183, 1) 98%);
+  border-radius: 5px;
+  padding: 10px;
+  flex-grow: 1;
   p {
-    margin-top: 5px;
+    font-size: 14px;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
   }
+  img {
+    margin-top: 10px;
+    border-radius: 50%;
+  }
+}
+
+.progress_pic {
+  width: 120px;
+  height: 180px;
+  text-align: center;
+  // margin: 20px;
+  background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+  border-radius: 5px;
+  padding: 10px;
+  flex-grow: 1;
+  p {
+    font-size: 14px;
+    margin-top: 20px;
+    color: white;
+    font-weight: bold;
+  }
+  img {
+    margin-top: 10px;
+    border-radius: 50%;
+  }
+}
+
+.attention_chart, .progress_chart {
+  vertical-align: middle;
+  p {
+    font-size: 12px;
+  }
+}
+
+.attention-card {
+  margin: 0 auto;
+  width: 90%;
+  height: 180px;
+  // border: 1px solid rgba(173, 128, 250, 1);
+}
+
+.title-sos {
+  background-image: linear-gradient(45deg, rgba(246, 148, 183, 1) 5%, #fa8480 69%, rgba(246, 148, 183, 1) 98%);;
+  background-clip: text;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-weight: bold;
 }
