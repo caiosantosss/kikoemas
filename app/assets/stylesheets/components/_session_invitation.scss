@@ -6,7 +6,11 @@
   background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
   box-shadow: 0px 0px 5px grey;
   color: white;
-  margin-top: 10px;
+  margin-top: 15px;
+  h3{
+    font-size: 18px;
+    margin-top: 10px;
+  }
   .yes-button, .no-button{
     display: inline-block;
   margin-top: 0 auto;
@@ -33,6 +37,6 @@
     transition: .5s ease;
     backface-visibility: hidden;
     margin-bottom: 5px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 }
