@@ -1,0 +1,10 @@
+<div class="student-hp-chart">
+  <div class="weekly_report d-flex justify-content-center align-items-center w-100">
+    <% current_user.daily_emotions.where('date >= ? AND date <= ?', (Time.now - 1.week).at_beginning_of_week, (Time.now - 1.week).at_end_of_week).each do |report| %>
+      <div class="date_set">
+        <i class="<%=fontawesome(report.emotion)%> text-white"></i>
+        <p class="text-white"><%= report.date.strftime('%a') %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
