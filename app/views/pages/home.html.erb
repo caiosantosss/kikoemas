@@ -1,18 +1,20 @@
 <div class="page">
   <%= render 'shared/navbar' %>
   <div class="body-frame">
-    <div class="daily-report">
+    <div class="daily-report <%= "small" if current_user&.emotion_today? %>">
       <% unless current_user&.emotion_today? %>
         <%= render 'emotions_home', daily_emotion: @daily_emotion %>
       <% else %>
         <div class="flex-row">
-          <p class='d-flex justify-content-center' style="padding-top: 1.5rem">Today's emotion has been recorded</p>
-          <p class='d-flex justify-content-center'style="padding-top: 1.5rem">Thank you!</p>
+          <h1 class='d-flex text-center mt-4 justify-content-center'>Your week so far</h1>
+          <%= render 'weekly_individual_report' %>
+          <%# <p class='d-flex justify-content-center' style="padding-top: 1.5rem">Today's emotion has been recorded</p>
+          <p class='d-flex justify-content-center'style="padding-top: 1.5rem">Thank you!</p> %>
         </div>
       <% end %>
     </div>
-    <h3 class='sos-text mt-3 text-center'>--- I need help now ---</h3>
     <div class='sos m-3 p-4'>
+      <h3 class='sos-text mb-3 text-center' style="color: white">Find help now</h3>
       <div class='online-counselors'>
         <p style='margin-bottom: 0; margin-left: 16px'>Online counselors at your school:</p>
         <div class="d-flex p-2">

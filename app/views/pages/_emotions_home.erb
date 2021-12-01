@@ -6,7 +6,7 @@
       <div class="emotion-form">
         <%= simple_form_for @daily_emotion, remote: true do |f| %>
           <div class="mx-auto w-100 justify-content-center text-center">
-            <%= f.input :emotion,
+            <%= f.input :emotion, label: '',:required => false,
               as: :radio_buttons,
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'category-wrapper',
@@ -21,7 +21,7 @@
       <div class="emotion-form">
         <%= simple_form_for @daily_emotion, remote: true do |f| %>
           <div class="mx-auto w-100 justify-content-center text-center">
-            <%= f.input :emotion,
+            <%= f.input :emotion, label: '',:required => false,
               as: :radio_buttons,
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'category-wrapper',

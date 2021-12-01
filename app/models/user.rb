@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :messages, as: :sender
   has_many :daily_emotions, dependent: :destroy
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, #remove before demo day
          :recoverable, :rememberable, :validatable
 
   def most_recent_past_booking
