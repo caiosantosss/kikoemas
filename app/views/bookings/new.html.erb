@@ -1,11 +1,11 @@
 <div class="page">
   <%= render 'shared/navbar' %>
   <div class="body-frame">
-    <div class="booking-title my-3 text-center">
-      <h2 class="book-a-session">Book a Session</h2>
-    </div>
     <%# Counselor, Time, Mode %>
     <div class="counselors-form mx-auto justify-content-center text-center">
+      <div class="text-center">
+        <h2 class="book-a-session">Book a Session</h2>
+      </div>
       <%= simple_form_for @booking do |f| %>
         <%= f.association :counselor, label: 'Counselors',:required => false,
           as: :radio_buttons,
