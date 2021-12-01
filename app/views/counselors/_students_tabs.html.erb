@@ -47,6 +47,13 @@
     <% end %>
   </div>
   <div class="tab-pane fade py-3" id="converstions" role="tabpanel" aria-labelledby="converstion-tab">
+    <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-2" style='display: block'>
+      <h4>Progress of Students</h4>
+    </div>
+    <div class="description">
+      <p>These are the students you once had sessions with.</p>
+      <p>Check their quarter reports to track their progress!</p>
+    </div>
     <% @past_student_session.each do |pair| %>
       <div class="attention-card d-flex justify-content-around my-4">
       <%= link_to user_path(pair[0]) do %>
