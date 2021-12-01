@@ -134,65 +134,75 @@ puts 'Counselors created'
 
 puts 'Creating random students'
 
-rando_students = []
-10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone,
-    password: '123456',
-    school: school1,
-    grade: 1,
-    classroom: 'A'
-  )
-  rando_students << user
-end
+# rando_students = []
+# 10.times do
+#   user = User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     phone_number: Faker::PhoneNumber.cell_phone,
+#     password: '123456',
+#     school: school1,
+#     grade: 1,
+#     classroom: 'A'
+#   )
+#   rando_students << user
+# end
 
-10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone,
-    password: '123456',
-    school: school1,
-    grade: 1,
-    classroom: 'B'
-  )
-  rando_students << user
-end
+# 10.times do
+#   user = User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     phone_number: Faker::PhoneNumber.cell_phone,
+#     password: '123456',
+#     school: school1,
+#     grade: 1,
+#     classroom: 'B'
+#   )
+#   rando_students << user
+# end
 
-10.times do
-  user = User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    phone_number: Faker::PhoneNumber.cell_phone,
-    password: '123456',
-    school: school1,
-    grade: 1,
-    classroom: 'C'
-  )
-  rando_students << user
-end
+# 10.times do
+#   user = User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     phone_number: Faker::PhoneNumber.cell_phone,
+#     password: '123456',
+#     school: school1,
+#     grade: 1,
+#     classroom: 'C'
+#   )
+#   rando_students << user
+# end
 
 puts 'Finished the random users'
 
+puts 'Creating past bookings...'
+past_booking = Booking.new(
+  start_time: Date.today - 1.month,
+  mode: 0
+)
+past_booking.counselor = counselor1
+past_booking.user = user3
+past_booking.save!
+puts 'Finished creating past booking'
+
 puts 'Creating daily emotions...'
 
-rando_students.each do |user|
-  ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
-    daily_report = DailyEmotion.new(
-      date: date,
-      emotion: rand(5)
-    )
-    daily_report.user = user
-    daily_report.save!
-  end
-end
-
-[user2, user3].each do |user|
+# rando_students.each do |user|
+#   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
+#     daily_report = DailyEmotion.new(
+#       date: date,
+#       emotion: rand(5)
+#     )
+#     daily_report.user = user
+#     daily_report.save!
+#   end
+# end
+# user3 --> daily emotion reports from 2 months ago
+[user3].each do |user|
   ((Date.today - 2.month).beginning_of_month..(Date.today - 1)).each do |date|
     daily_report = DailyEmotion.new(
       date: date,
@@ -202,53 +212,132 @@ end
     daily_report.save!
   end
 end
+puts 'Creating daily emotions for Karen'
 
-puts 'Creating daily emotions to Ryota'
-
-[user1].each do |user|
-  ((Date.today - 2.month).beginning_of_month...(Date.today - 4)).each do |date|
-    daily_report = DailyEmotion.new(
-      date: date,
-      emotion: rand(5)
-    )
-    daily_report.user = user
-    daily_report.save!
-  end
+((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
+  daily_report = DailyEmotion.new(
+    date: date,
+    emotion: rand(5)
+  )
+  daily_report.user = user2
+  daily_report.save!
 end
 
-puts 'Deleting 4 last days to Ryota Daily emotions'
-
-daily_report_ryota = DailyEmotion.new(
-  date: Date.today - 1,
-  emotion: 0,
-  user_id: user1
+daily_report_karen = DailyEmotion.new(
+  date: (Date.today - 1.week).beginning_of_week,
+  emotion: 3
 )
-daily_report_ryota.user = user1
-daily_report_ryota.save!
+daily_report_karen.user = user2
+daily_report_karen.save!
 
-daily_report_ryota = DailyEmotion.new(
-  date: Date.today - 2,
-  emotion: 0,
-  user_id: user1
+daily_report_karen = DailyEmotion.new(
+  date: (Date.today - 1.week).beginning_of_week + 1.day,
+  emotion: 2
 )
-daily_report_ryota.user = user1
-daily_report_ryota.save!
+daily_report_karen.user = user2
+daily_report_karen.save!
 
-daily_report_ryota = DailyEmotion.new(
-  date: Date.today - 3,
-  emotion: 0,
-  user_id: user1
+daily_report_karen = DailyEmotion.new(
+  date: (Date.today - 1.week).beginning_of_week + 2.day,
+  emotion: 1
 )
-daily_report_ryota.user = user1
-daily_report_ryota.save!
+daily_report_karen.user = user2
+daily_report_karen.save!
 
-daily_report_ryota = DailyEmotion.new(
-  date: Date.today - 4,
-  emotion: 0,
-  user_id: user1
+(((Date.today - 1.week).beginning_of_week + 3.day) .. ((Date.today - 1.week).end_of_week)).each do |date|
+  daily_report_karen = DailyEmotion.new(
+    date: date,
+    emotion: 0
+  )
+  daily_report_karen.user = user2
+  daily_report_karen.save!
+end
+
+(((Date.today - 1.week).end_of_week + 1.day) .. (Date.today - 1.day)).each do |date|
+  daily_report_ryota = DailyEmotion.new(
+    date: date,
+    emotion: rand(1..3)
+  )
+  daily_report_ryota.user = user2
+  daily_report_ryota.save!
+end
+
+puts 'Creating daily emotions for Ryota'
+
+((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
+  daily_report = DailyEmotion.new(
+    date: date,
+    emotion: rand(5)
+  )
+  daily_report.user = user1
+  daily_report.save!
+end
+
+# puts 'Deleting 4 last days to Ryota Daily emotions'
+
+daily_report = DailyEmotion.new(
+  date: (Date.today - 1.week).beginning_of_week,
+  emotion: 2
 )
-daily_report_ryota.user = user1
-daily_report_ryota.save!
+daily_report.user = user1
+daily_report.save!
+
+daily_report = DailyEmotion.new(
+  date: (Date.today - 1.week).beginning_of_week + 1.day,
+  emotion: 1
+)
+daily_report.user = user1
+daily_report.save!
+
+(((Date.today - 1.week).beginning_of_week + 2.day)..(Date.today - 1.week).end_of_week).each do |date|
+  daily_report_ryota = DailyEmotion.new(
+    date: date,
+    emotion: 0
+  )
+  daily_report_ryota.user = user1
+  daily_report_ryota.save!
+end
+
+(((Date.today - 1.week).end_of_week + 1.day) .. (Date.today - 1.day)).each do |date|
+  daily_report_ryota = DailyEmotion.new(
+    date: date,
+    emotion: rand(1..2)
+  )
+  daily_report_ryota.user = user1
+  daily_report_ryota.save!
+end
+
+# daily_report_ryota = DailyEmotion.new(
+#   date: Date.today - 1,
+#   emotion: 0,
+#   user_id: user1
+# )
+# daily_report_ryota.user = user1
+# daily_report_ryota.save!
+
+# daily_report_ryota = DailyEmotion.new(
+#   date: Date.today - 2,
+#   emotion: 0,
+#   user_id: user1
+# )
+# daily_report_ryota.user = user1
+# daily_report_ryota.save!
+
+# daily_report_ryota = DailyEmotion.new(
+#   date: Date.today - 3,
+#   emotion: 0,
+#   user_id: user1
+# )
+# daily_report_ryota.user = user1
+# daily_report_ryota.save!
+
+# daily_report_ryota = DailyEmotion.new(
+#   date: Date.today - 4,
+#   emotion: 0,
+#   user_id: user1
+# )
+# daily_report_ryota.user = user1
+# daily_report_ryota.save!
 
 puts 'Daily emotions created'
 # test for messageable

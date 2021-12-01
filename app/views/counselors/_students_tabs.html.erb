@@ -1,0 +1,59 @@
+<ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="active tab-underlined" id="home-tab" data-toggle="tab" href="#bookings" role="tab" aria-controls="home" aria-selected="true">Students</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="tab-underlined" id="converstion-tab" data-toggle="tab" href="#converstions" role="tab" aria-controls="converstion" aria-selected="false">Progress</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade py-3 show active" id="bookings" role="tabpanel" aria-labelledby="home-tab">
+    <% current_counselor.bookings.map do |booking| %>
+      <% if booking.in_session == true %>
+        <div class="sos btn d-flex justify-content-center p-3 m-3 position-relative">
+          <%= link_to '', booking_path(booking), class: 'card-link' %>
+          <div class="emergency-request">
+            <div class="user-pic">
+              <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+            </div>
+            <p class='sub-title'><strong>EMERGENCY REQUEST</strong></p>
+            <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <h4>Students in need of attention</h4>
+    <% student_count_arr = @students.map do |student| %>
+      <% verySadCount = 0 %>
+      <%[student, student.daily_emotions.where('date >= ? AND date <= ?', (Date.today - 1.week).beginning_of_week, (Date.today - 1.week).end_of_week).map {|report| report.emotion == 'Very Sad' ? verySadCount += 1 : verySadCount = 0}]%>
+    <% end %>
+    <% student_count_arr.each do |arr| %>
+      <% if arr[1].select {|num| num >=4 }.count != 0 %>
+      <div class="d-flex justify-content-center my-4">
+        <div class="attention_pic">
+          <%= cl_image_tag(arr[0].photo.key, height: 60, width: 60, radius: 'max', background: '#f4f4f4') %>
+          <p><%= arr[0].full_name%></p>
+        </div>
+        <div class="attention_chart">
+          <%= line_chart @daily_reports.where(user: arr[0]).where('date >= ? AND date <= ?', (Date.today - 1.week).beginning_of_week, (Date.today - 1.week).end_of_week).group_by_day_of_week(:date, format: "%a").sum(:emotion), min: -1, max: 4, height: '180px', width: '200px'%>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade py-3" id="converstions" role="tabpanel" aria-labelledby="converstion-tab">
+    <% @past_student_session.each do |pair| %>
+      <div class="d-flex justify-content-center my-4">
+        <div class="progress_pic">
+          <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+          <p><%= pair[0].full_name %></p>
+        </div>
+        <div class="progress_chart">
+            <% past_month_days = (Date.today - 1.month).day %>
+            <%= line_chart pair[0].daily_emotions.where('date >= ? AND date <= ?', (Date.today - 1.month).beginning_of_month, (Date.today - 1.month).end_of_month).group_by_week(:date).average(:emotion), height: '180px', width: '200px' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
