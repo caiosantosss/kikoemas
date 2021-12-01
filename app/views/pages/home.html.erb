@@ -13,11 +13,11 @@
         </div>
       <% end %>
     </div>
-    <div class='sos m-3 p-4'>
+    <div class='sos p-4' style='margin-top: 60px;'>
       <h3 class='sos-text mb-3 text-center' style="color: white">Find help now</h3>
       <div class='online-counselors'>
-        <p style='margin-bottom: 0; margin-left: 16px'>Online counselors at your school:</p>
-        <div class="d-flex p-2">
+        <p style='text-align: center'>Online counselors at your school:</p>
+        <div class="d-flex p-2 justify-content-center">
           <% @counselors.each do |counselor| %>
             <div class="counselor-pic ml-2">
               <%= cl_image_tag(counselor.photo.key, height: 50, width: 50, radius: 'max', background: '#f4f4f4') %>
