@@ -6,5 +6,7 @@
       <%= link_to 'No', booking_path(booking),method: :delete, class: 'no-button' %>
     </div>
     <%# <%= link_to 'No', new_booking_path, class: 'yes-button mx-auto my-5', style: 'display: block' %>
+    <%= cl_image_tag(booking.counselor.photo.key, height: 100, width: 100, radius: 'max',class: "counselor-pic", background: '#f4f4f4') %>
+    <p><strong><%= booking.counselor.last_name %> <%= booking.counselor.first_name %></strong></p>
   </div>
 <% end %>
