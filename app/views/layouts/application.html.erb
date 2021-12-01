@@ -12,9 +12,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<%= image_path 'icons/favicon-16x16.png' %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
   <body>
     <%= render 'shared/flashes' %>
     <%= yield %>
+    <%= render 'sweetify/alert' %>
   </body>
 </html>

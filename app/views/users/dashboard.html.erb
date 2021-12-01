@@ -1,16 +1,7 @@
 <div class="page">
+  <%= render 'shared/navbar' %>
   <div class="body-frame">
-    <% @suggested_bookings.each do |booking| %>
-      <div class="suggested_message text-center">
-        <p>Counselor was worried about you. Do you want to book a session?</p>
-        <div class="students-choices style: 'display: block'">
-          <%= link_to 'Yes', edit_booking_path(booking), class: 'yes-button mx-auto my-5' %>
-          <%= link_to 'No', booking_path(booking),method: :delete, class: 'no-button mx-auto my-5' %>
-        </div>
-        <%# <%= link_to 'No', new_booking_path, class: 'yes-button mx-auto my-5', style: 'display: block' %>
-        <p>Counselor's name : <strong><%= booking.counselor.last_name %> <%= booking.counselor.first_name %></strong></p>
-      </div>
-    <% end %>
+    <%= render "session_invitation" %>
     <%= render "monthly_individual_report" %>
   </div>
   <%= render 'shared/footer' %>

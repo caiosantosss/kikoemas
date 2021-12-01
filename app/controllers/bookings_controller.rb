@@ -26,17 +26,21 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.mode = params[:booking][:mode].to_i
     @booking.user = current_user if current_user
-     @booking.counselor = current_counselor if current_counselor
+    @booking.counselor = current_counselor if current_counselor
     if params[:booking][:emergency] == 'true'
       @booking.counselor = Counselor.all.first
       @booking.start_time = Time.now
+      @booking.end_time = (@booking.updated_at)
+    else
+      @booking.end_time = (@booking.start_time + 3600)
     end
     authorize @booking
     if @booking.save
       if @booking.emergency == true
         redirect_to booking_path(@booking)
       elsif current_counselor
-        flash[:notice] = "Suggestion has been made for student."
+        sweetalert_success("Invitation has been sent to the student.", "Sent!", persistent: "Done")
+        # flash[:notice] = "Invitation has been sent to the student"
         redirect_to user_path(@booking.user)
       else
         redirect_to bookings_path
