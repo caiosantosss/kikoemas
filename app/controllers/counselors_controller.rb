@@ -6,6 +6,13 @@ class CounselorsController < ApplicationController
     @emotions = DailyEmotion.emotions.keys
     @daily_reports = DailyEmotion.all
     authorize current_counselor
+    @past = current_counselor.bookings.where('start_time < ?', Time.now)
+    @past_students = @past.map { |booking| booking.user }.uniq
+    @past_student_session = @past_students.map do |student|
+      past = student.bookings.where('start_time < ?', Time.now)
+      most_recent = past.order(:start_time).first
+      [student, most_recent]
+    end
   end
 
   def bookings

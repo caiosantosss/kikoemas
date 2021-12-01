@@ -1,27 +1,8 @@
 <div class="page">
   <%= render 'shared/navbar' %>
   <div class="body-frame">
-    <% current_counselor.bookings.map do |booking| %>
-      <% if booking.in_session == true %>
-        <div class="sos btn d-flex justify-content-center p-3 m-3 position-relative">
-          <%= link_to '', booking_path(booking), class: 'card-link' %>
-          <div class="emergency-request">
-            <div class="user-pic">
-              <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
-            </div>
-            <p class='sub-title'><strong>EMERGENCY REQUEST</strong></p>
-            <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-            <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-    <%= render 'weekly_and_monthly_reports' %>
-    <div>
-      <h2>Students in need of attention</h2>
-      <%# @students.each do |student| %>
-        <%# student.daily_emotions.sort_by {|report| report.date } %>
-      </div>
-    </div>
-    <%= render 'shared/footer_counselor' %>
+    <%# render 'weekly_and_monthly_reports' %>
+    <%= render "students_tabs" %>
   </div>
+  <%= render 'shared/footer_counselor' %>
+</div>
