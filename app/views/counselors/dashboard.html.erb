@@ -20,7 +20,7 @@
     <div>
       <h2>Students in need of attention</h2>
       <%# @students.each do |student| %>
-        <%# student.daily_emotions. %>
+        <%# student.daily_emotions.sort_by {|report| report.date } %>
       </div>
     </div>
     <%= render 'shared/footer_counselor' %>
