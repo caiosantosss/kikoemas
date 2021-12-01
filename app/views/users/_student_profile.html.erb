@@ -1,8 +1,10 @@
 <div class="profile-card">
   <h3 class="student-name"><strong><%= @user.full_name %></strong></h3>
-  <div class="student-picture row justify-content-center">
+  <div class="student-picture row mx-auto justify-content-center">
     <%= cl_image_tag(@user.photo.key, height: 120, width: 120, radius: 'max',class: 'student-image', background: '#f4f4f4') %>
-    <div class="counselor_pic col-xs-2 col-sm-3 col-lg-3 text-center">
+    <div class="student-contact col-xs-2 col-sm-3 col-lg-3 text-center">
+      <i class="fa fa-phone mt-2" aria-hidden="true"></i> <%= @user.phone_number%><br>
+      <i class="fa fa-home mt-2"></i> <%= @user.address %>
       <%= render "contact_form" %>
     </div>
   </div>
