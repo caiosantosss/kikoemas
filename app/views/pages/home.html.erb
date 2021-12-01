@@ -1,7 +1,7 @@
 <div class="page">
   <%= render 'shared/navbar' %>
   <div class="body-frame">
-    <div class="daily-report">
+    <div class="daily-report <%= "small" if current_user&.emotion_today? %>">
       <% unless current_user&.emotion_today? %>
         <%= render 'emotions_home', daily_emotion: @daily_emotion %>
       <% else %>
