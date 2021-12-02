@@ -3,7 +3,7 @@
     <div class="chat-message">
       <p><%= message.content %></p>
     </div>
-    <small><%= message.created_at.strftime("%l:%M%p") %></small>
+    <small><%= message.created_at.in_time_zone("Tokyo").strftime("%l:%M%p") %></small>
   </div>
 <% else %>
   <div class="message-container-receive" id="message-<%= message.id %>">
@@ -13,6 +13,6 @@
         <p><%= message.content %></p>
       </div>
     </div>
-    <small><%= message.created_at.strftime("%l:%M%p") %></small>
+    <small><%= message.created_at.in_time_zone("Tokyo").strftime("%l:%M%p") %></small>
   </div>
 <% end %>
