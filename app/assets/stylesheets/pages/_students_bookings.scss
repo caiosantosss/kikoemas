@@ -17,6 +17,7 @@
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
   font-weight: bold;
+  display: list-item;
 }
 
 .description {
@@ -44,4 +45,10 @@
 .transparent-input {
   background-color: transparent;
   color: white;
+}
+
+@media(min-width:500px) {
+  .title {
+  display: block;
+  }
 }
