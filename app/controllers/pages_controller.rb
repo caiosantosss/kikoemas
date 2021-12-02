@@ -7,5 +7,4 @@ class PagesController < ApplicationController
     @counselors = Counselor.all
     @daily_emotion = DailyEmotion.new
   end
-
 end
