@@ -52,6 +52,68 @@
   img {
     border-radius: 50%;
   }
+  .counselor_pic {
+    padding: 0px;
+    p {
+      margin: 5px 0px;
+    }
+  }
+  .counselor_info {
+    width: 50%;
+    text-align: left;
+    align-self: center;
+    padding: 0px;
+    div {
+      // width: 33%;
+      text-align: left;
+      margin: 5px;
+    }
+    i {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  }
+}
+.recent-pic {
+  img {
+    border-radius: 50%;
+    margin-bottom: 5px;
+  }
+  p{
+    background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+    background-clip: text;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+}
+.recent-card {
+  background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  color: white;
+  margin-bottom: 10px;
+  .recent-button {
+  }
+  .recent-session-info {
+    width: 50%;
+    text-align: left;
+    align-self: center;
+    padding: 0px;
+    div {
+      // width: 33%;
+      text-align: left;
+      margin: 5px;
+    }
+    i {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+  }
 }
 
 .transparent-input {
