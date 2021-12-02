@@ -1,11 +1,11 @@
 module DailyEmotionHelper
   def fontawesome(emotion)
       case emotion
-      when 'Sad' then "far fa-frown"
-      when 'Very Sad' then "far fa-sad-tear"
-      when 'Neutral' then "far fa-meh"
-      when 'Happy' then "far fa-smile"
-      when 'Very Happy' then "far fa-laugh-beam"
+      when 'Sad' then "fas fa-frown bg-sad text-sad "
+      when 'Very Sad' then "fas fa-sad-tear bg-very-sad text-dark-sad "
+      when 'Neutral' then "fas fa-meh bg-neutral text-neutral "
+      when 'Happy' then "fas fa-smile bg-happy text-happy "
+      when 'Very Happy' then "fas fa-laugh-beam bg-very-happy text-very-happy "
       end
     end
 end
