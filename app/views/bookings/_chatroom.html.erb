@@ -9,17 +9,17 @@
       <%= simple_form_for @booking do |f|  %>
         <%= f.hidden_field :in_session, value: false, as: :boolean %>
         <div class="top-head-button">
-          <%= f.button :submit, 'End Session', class: 'btn btn-sm btn-primary mx-3', style: 'color: rgba(249, 250, 253, 1)' %>
+          <%= f.button :submit, 'End Session', class: 'btn btn-sm btn-primary mx-3', style: 'color: rgba(249, 250, 253, 1); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2)' %>
         </div>
       <% end %>
     <% end %>
   </div>
   <%# Message body %>
-  <div class="page-frame-body col-md-8">
+  <div class="page-frame-body col-md-8 mx-auto">
     <%# messagesContainer %>
     <div id="messages" data-booking-id="<%= @booking.id %>" data-user-id="<%=current_counselor&.id || current_user&.id%>">
       <div class="text-center my-2">
-        <small><%= @booking.created_at.strftime("%a %b %e") %></small>
+        <small><%= @booking.created_at.in_time_zone("Tokyo").strftime("%a %b %e") %></small>
       </div>
       <% @booking.messages.each do |message| %>
         <%= render 'messages/message', message: message, sender: message.sender == current_counselor || message.sender == current_user %>

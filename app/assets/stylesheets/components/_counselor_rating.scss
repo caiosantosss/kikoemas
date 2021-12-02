@@ -1,3 +1,32 @@
+.add-note-card{
+  padding: 10px;
+  margin: 0 auto;
+  height: 380px;
+  width: 90%;
+  background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 3px;
+  color: white;
+  overflow: auto
+}
+
+.user_pic {
+  margin: 20px;
+  p {
+    margin: 5px;
+    font-weight: bold;
+    text-shadow: 0 0 1px rgb(99, 123, 179);
+  }
+}
+
+.rating-text {
+  text-align: center;
+  margin: 0 auto;
+  p {
+    margin: 10px;
+  }
+}
+
 .wrapper{
  width: 600px;
  height: 500px;
@@ -8,8 +37,17 @@
   border-radius: 3px;
 }
 .counselor-rating-btn {
-   border-color: $kikoe-purple;
-  color: $kikoe-pink;
+  margin: 0 auto;
+  border-color: $kikoe-purple;
+  padding: 10px;
+  width: 40%;
+  color: white;
+  text-align: center;
+  background-color: $kikoe-pink;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .counselor-rating-btn:hover {
@@ -22,4 +60,12 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   }
+}
+
+.submit-note-btn {
+    margin: 5px auto;
+    display:block;
+    padding: 10px;
+    background-color: $kikoe-pink;
+    color: white;
 }

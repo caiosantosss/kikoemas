@@ -17,8 +17,8 @@
               <%= cl_image_tag(booking.user.photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
             </div>
             <p class='sub-title'><strong>EMERGENCY REQUEST</strong></p>
-            <p><strong>Name: </strong><%= booking.user.first_name %> <%= booking.user.last_name %></p>
-            <p><strong>Mobile Number: </strong><%= booking.user.phone_number %></p>
+            <p><i class="far fa-user"></i> <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p><i class="fas fa-phone"></i> <%= booking.user.phone_number %></p>
           </div>
         </div>
       <% end %>
@@ -35,17 +35,17 @@
     <% end %>
     <% student_count_arr.each do |arr| %>
       <% if arr[1].select {|num| num >=4 }.count != 0 %>
-      <div class="attention-card d-flex justify-content-around my-4">
-        <%= link_to user_path(arr[0]) do %>
-          <div class="attention_pic">
-            <%= cl_image_tag(arr[0].photo.key, height: 60, width: 60, radius: 'max', background: '#f4f4f4') %>
-            <p><%= arr[0].full_name%></p>
+        <div class="attention-card d-flex justify-content-around my-4">
+          <%= link_to user_path(arr[0]) do %>
+            <div class="attention_pic" style="box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.14);">
+              <%= cl_image_tag(arr[0].photo.key, height: 60, width: 60, radius: 'max', background: '#f4f4f4') %>
+              <p><%= arr[0].full_name%></p>
+            </div>
+          <% end %>
+          <div class="attention_chart">
+            <%= line_chart @daily_reports.where(user: arr[0]).where('date >= ? AND date <= ?', (Date.today - 1.week).beginning_of_week, (Date.today - 1.week).end_of_week).group_by_day_of_week(:date, format: "%a").sum(:emotion), min: -1, max: 4, height: '180px', width: '200px', colors:['rgb(226, 93, 93)']%>
           </div>
-        <% end %>
-        <div class="attention_chart">
-          <%= line_chart @daily_reports.where(user: arr[0]).where('date >= ? AND date <= ?', (Date.today - 1.week).beginning_of_week, (Date.today - 1.week).end_of_week).group_by_day_of_week(:date, format: "%a").sum(:emotion), min: -1, max: 4, height: '180px', width: '200px', colors:['rgb(226, 93, 93)']%>
         </div>
-      </div>
       <% end %>
     <% end %>
   </div>
@@ -58,15 +58,15 @@
     </div>
     <% @past_student_session.each do |pair| %>
       <div class="attention-card d-flex justify-content-around my-4">
-      <%= link_to user_path(pair[0]) do %>
-        <div class="progress_pic">
-          <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
-          <p><%= pair[0].full_name %></p>
-        </div>
-      <% end %>
+        <%= link_to user_path(pair[0]) do %>
+          <div class="progress_pic" style='box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.14)'>
+            <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
+            <p><%= pair[0].full_name %></p>
+          </div>
+        <% end %>
         <div class="progress_chart">
-            <% past_month_days = (Date.today - 1.month).day %>
-            <%= line_chart pair[0].daily_emotions.where('date >= ? AND date <= ?', (Date.today - 1.month).beginning_of_month, (Date.today - 1.month).end_of_month).group_by_week(:date).average(:emotion), height: '180px', width: '200px', colors:["rgb(131, 207, 218)"] %>
+          <% past_month_days = (Date.today - 1.month).day %>
+          <%= line_chart pair[0].daily_emotions.where('date >= ? AND date <= ?', (Date.today - 1.month).beginning_of_month, (Date.today - 1.month).end_of_month).group_by_week(:date).average(:emotion), height: '180px', width: '200px', colors:["rgb(131, 207, 218)"] %>
         </div>
       </div>
     <% end %>

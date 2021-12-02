@@ -2,12 +2,7 @@
   <%= render 'shared/navbar' %>
   <div class="body-frame">
     <%= render 'recently_booked' %>
-    <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto" style='display: block; margin-top: 30px;'>
-      <h3>Upcoming Session:</h3>
-    </div>
-    <div class="container">
-      <%= render "counselors/upcoming_session" %>
-    </div>
+    <%= render "counselors/upcoming_session" %>
     <%= render 'past_sessions' %>
   </div>
   <%= render 'shared/footer_counselor' %>

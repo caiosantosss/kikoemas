@@ -7,17 +7,17 @@
         <h2 class="book-a-session">Book a Session</h2>
       </div>
       <%= simple_form_for @booking do |f| %>
-        <%= f.association :counselor, label: 'Counselors',
+        <%= f.association :counselor, label: 'Counselors', :required => false,
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper d-flex justify-content-center',
           item_wrapper_class: 'category-counselor mx-3',
           input_html: {class: 'category-selector'},
-          collection: @counselors.map { |counselor| [cl_image_tag(counselor.photo.key, height: 100, width: 100, radius: 'max', title:counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img", background: "#f4f4f4"), counselor.id ] }
+          collection:[[cl_image_tag(@booking.counselor.photo.key, height: 100, width: 100, radius: 'max', title:@booking.counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img", background: "#f4f4f4"), @booking.counselor.id]]
         %>
         <div class='row text-center justify-content-center'>
           <%= f.input :start_time, as: :string, label: 'Start Time', input_html: {class: "datepicker transparent-input"}%>
-          <%= f.input :mode, label: 'Mode',
+          <%= f.input :mode, label: 'Mode', :required => false,
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper d-flex justify-content-between',
