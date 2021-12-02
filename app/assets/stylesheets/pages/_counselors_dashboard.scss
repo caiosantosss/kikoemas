@@ -8,14 +8,6 @@
   padding: 10px;
   flex-grow: 1;
   text-shadow: 0 0 1px rgb(99, 123, 179);
-  .attention_pic:hover {
-  /*customizable*/
-  transition: 0.2s ease-out;
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  color: $kikoe-white;
-   background-image: linear-gradient(45deg, rgba(246, 148, 183, 1) 5%, $kikoe-purple 69%, rgba(246, 148, 183, 1) 98%);
-}
   p {
     font-size: 14px;
     margin-top: 20px;
@@ -62,6 +54,12 @@
   width: 90%;
   height: 180px;
   // border: 1px solid rgba(173, 128, 250, 1);
+   a{
+    text-decoration: none;
+  }
+  a:hover{
+    text-decoration: none !important;
+  }
 }
 
 .title-sos {
