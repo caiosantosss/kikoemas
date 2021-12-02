@@ -11,9 +11,7 @@
             <p>with <strong><%= booking.user.last_name %> <%= booking.user.first_name %></strong></p>
           </div>
           <div class="counselor_info col-xs-6 col-sm-6 col-lg-6 text-left">
-            <% date = booking.start_time %>
-            <p><strong>Date:</strong> <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
-            <p><strong>Mode:</strong> <%= booking.mode %></p>
+            <%= render 'shared/session_card_info', booking: booking %>
           </div>
         </div>
       <% end %>
