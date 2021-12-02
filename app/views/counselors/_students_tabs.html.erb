@@ -39,7 +39,7 @@
           <%= link_to user_path(arr[0]) do %>
             <div class="attention_pic" style="box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.14);">
               <%= cl_image_tag(arr[0].photo.key, height: 60, width: 60, radius: 'max', background: '#f4f4f4') %>
-              <p><%= arr[0].full_name%></p>
+              <p><%= arr[0].full_name %></p>
             </div>
           <% end %>
           <div class="attention_chart">
