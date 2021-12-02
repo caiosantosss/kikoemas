@@ -59,7 +59,7 @@
     <% @past_student_session.each do |pair| %>
       <div class="attention-card d-flex justify-content-around my-4">
         <%= link_to user_path(pair[0]) do %>
-          <div class="progress_pic">
+          <div class="progress_pic" style='box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.14)'>
             <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
             <p><%= pair[0].full_name %></p>
           </div>
