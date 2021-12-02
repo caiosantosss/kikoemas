@@ -1,32 +1,34 @@
-<div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-3 text-center" style='display: block'>
-  <h2>Session has ended</h2>
-</div>
-<%# Counselor, Time, Mode %>
-<div class="rating-card card-height-315">
-  <%= simple_form_for @booking, method: :patch, html: { class: 'no-validation' } do |f| %>
-    <div class="mx-auto w-100 justify-content-center text-center">
-      <%= f.input :rating, label: 'Are you feeling better now?',
-      as: :radio_buttons,
-      collection_wrapper_tag: 'div',
-      collection_wrapper_class: 'category-wrapper2',
-      item_wrapper_class: 'category-counselor',
-      input_html: {class: 'category-selector2'},
-      collection: [['Very bad', 1], ['Not really', 2], ['Slightly better', 3], ['Better', 4], ['Much Better', 5]]
-    %>
-    </div>
-    <div class="mt-4 justify-content-center row">
-      <div class="yes-button">
-        <%= simple_fields_for :redirect do |o| %>
-          <%= o.input :path, placeholder: "path", label: 'Would you like to book a session?', :required => false,
-            as: :radio_buttons,
-            collection_wrapper_tag: 'div text-center',
-            item_wrapper_class: 'btn btn-primary wrapperbtn border-btn',
-            collection_wrapper_class: 'd-flex justify-content-center',
-            input_html: {class: 'btn btn-primary category-selector3', onchange: 'this.form.submit()'},
-            collection: [['Yes', new_booking_path], ['No', root_path]]
-          %>
-        <% end %>
+<div class="rating-container">
+  <div class="title col-xs-8 col-sm-9 col-lg-9 mx-auto my-3 text-center" style='display: block'>
+    <h2>Session has ended</h2>
+  </div>
+  <%# Counselor, Time, Mode %>
+  <div class="rating-card">
+    <%= simple_form_for @booking, method: :patch, html: { class: 'no-validation' } do |f| %>
+      <div class="mx-auto w-100 justify-content-center text-center">
+        <%= f.input :rating, label: 'Are you feeling better now?',
+        as: :radio_buttons,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'category-wrapper2',
+        item_wrapper_class: 'category-counselor',
+        input_html: {class: 'category-selector2'},
+        collection: [['Very bad', 1], ['Not really', 2], ['Slightly better', 3], ['Better', 4], ['Much Better', 5]]
+      %>
       </div>
-    </div>
-  <% end %>
+      <div class="mt-4 justify-content-center row">
+        <div class="yes-button">
+          <%= simple_fields_for :redirect do |o| %>
+            <%= o.input :path, placeholder: "path", label: 'Would you like to book a session?', :required => false,
+              as: :radio_buttons,
+              collection_wrapper_tag: 'div text-center',
+              item_wrapper_class: 'btn btn-primary wrapperbtn border-btn',
+              collection_wrapper_class: 'd-flex justify-content-center',
+              input_html: {class: 'btn btn-primary category-selector3', onchange: 'this.form.submit()'},
+              collection: [['Yes', new_booking_path], ['No', root_path]]
+            %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
