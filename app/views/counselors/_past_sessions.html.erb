@@ -3,16 +3,27 @@
 </div>
 <div class="past_container row" style='width: 80%;margin: 0 auto'>
   <% @past_student_session.each do |pair| %>
-    <div class="col-xs-2 col-sm-3 col-lg-3 text-center">
+    <div class="recent-pic col-xs-2 col-sm-3 col-lg-3 text-center">
       <%= cl_image_tag(pair[0].photo.key, height: 80, width: 80, radius: 'max', background: '#f4f4f4') %>
       <p><%= pair[0].last_name %> <%= pair[0].first_name %></p>
-      <div class='recent_session card' data-controller='show-session-info'>
+      <div class='recent-card card' data-controller='show-session-info'>
         <div class='recent-button text-center'data-action="click->show-session-info#displayCard">Recent Session</div>
-        <div class='session-info d-none' data-show-session-info-target='infos'>
+        <div class='recent-session-info d-none' data-show-session-info-target='infos'>
           <% date = pair[1].start_time %>
-          <p>Date: <%= date.year %>/<%= date.month %>/<%= date.day %> <%= date.hour %>:<%= date.min == 0 ? '00' : date.min %></p>
-          <p>Mode: <%= pair[1].mode %></p>
-          <p>Note: <%= pair[1].note %></p>
+          <div><i class="far fa-calendar-check"></i><span><%= date.year %>/<%= date.month %>/<%= date.day %></span></div>
+          <div><i class="far fa-clock"></i></i><span><%= date.hour %>:<%= date.min == 0 ? '00' : date.min %> ~ <%= date.hour + 1 %>:<%= date.min == 0 ? '00' : date.min %></span></div>
+          <div>
+            <% if pair[1].mode == 'chatroom' %>
+              <i class="far fa-comment"></i><span>Chatroom</span>
+            <% elsif pair[1].mode == 'video' %>
+              <i class="fas fa-video"></i><span>Video</span>
+            <% else %>
+              <i class="fas fa-user-friends"></i><span>In-person</span>
+            <% end %>
+          </div>
+          <% unless pair[1].note == nil  %>
+            <div><i class="far fa-clipboard"></i><span><% pair[1].note %></span></div>
+          <% end %>
         </div>
       </div>
     </div>

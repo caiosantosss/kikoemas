@@ -1,0 +1,12 @@
+<% date = booking.start_time %>
+<div><i class="far fa-calendar-check"></i><span><%= date.year %>/<%= date.month %>/<%= date.day %></span></div>
+<div><i class="far fa-clock"></i></i><span><%= date.hour %>:<%= date.min == 0 ? '00' : date.min %> ~ <%= date.hour + 1 %>:<%= date.min == 0 ? '00' : date.min %></span></div>
+<div>
+  <% if booking.mode == 'chatroom' %>
+    <i class="far fa-comment"></i><span>Chatroom</span>
+  <% elsif booking.mode == 'video' %>
+    <i class="fas fa-video"></i><span>Video</span>
+  <% else %>
+    <i class="fas fa-user-friends"></i><span>In-person</span>
+  <% end %>
+</div>
