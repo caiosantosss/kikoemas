@@ -52,6 +52,7 @@ footer {
   color: $kikoe-white;
   box-shadow: 0px 1px 14px rgba(0, 0, 0, 0.14);
   border-radius: 5px;
+  margin-top: 45px;
 }
 
 .sos-button {
@@ -62,4 +63,73 @@ footer {
   font-weight: bold;
   background-color: white;
   border-radius: 3px;
+}
+
+
+@media(min-width:768px){
+  .daily-report {
+    h3 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  .emotions {
+    i {
+      font-size: 40px;
+      margin: 0px 20px;
+      box-shadow: 5px 7px 16px rgba(0,0, 0, .3);
+      border-radius: 50%;
+      line-height: 38px;
+      width: 38px;
+    }
+  }
+  .sos {
+    width: 70%;
+    margin: 80px auto;
+  }
+  .sos-text {
+    font-size: 30px;
+  }
+  .online-counselors {
+    p {
+      font-size: 15px;
+    }
+  }
+}
+
+@media(min-width:992px){
+  .daily-report {
+    h3 {
+      font-size: 50px;
+    }
+    p {
+      font-size: 30px;
+    }
+  }
+
+  .emotions {
+    i {
+      font-size: 50px;
+      margin: 0px 20px;
+      box-shadow: 5px 7px 16px rgba(0,0, 0, .3);
+      border-radius: 50%;
+      line-height: 48px;
+      width: 48px;
+      }
+  }
+  .sos {
+    width: 50%;
+    margin: 80px auto;
+  }
+  .sos-text {
+    font-size: 35px;
+  }
+
+  .online-counselors {
+    p {
+      font-size: 20px;
+    }
+  }
 }
