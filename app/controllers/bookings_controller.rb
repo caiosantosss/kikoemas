@@ -30,6 +30,7 @@ class BookingsController < ApplicationController
     if params[:booking][:emergency] == 'true'
       @booking.counselor = Counselor.all.first
       @booking.start_time = Time.now
+      Message.create!(booking: @booking, sender: @booking.counselor, content: "Hello, I'm here to help you today! How are you doing?")
       @booking.end_time = (@booking.updated_at)
     # else
       # @booking.end_time = (@booking.start_time + 3600)
