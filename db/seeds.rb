@@ -204,7 +204,7 @@ puts 'Creating daily emotions...'
 # end
 # user3 --> daily emotion reports from 2 months ago
 [user3].each do |user|
-  ((Date.today - 2.month).beginning_of_month..(Date.today - 1)).each do |date|
+  ((Date.today - 3.month).beginning_of_month..(Date.today - 1)).each do |date|
     daily_report = DailyEmotion.new(
       date: date,
       emotion: rand(5)
