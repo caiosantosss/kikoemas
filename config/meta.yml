@@ -1,4 +1,4 @@
 meta_product_name: "Kikoe+"
 meta_title: "Kikoe+ - Promoting high school students' well-being"
 meta_description: "Kikoe+ promotes high school students' well being by providing a service that enables early detection of student’s critical state in order to provide immediate support."
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "app/assets/images/cover.png" # should exist in `app/assets/images/`
