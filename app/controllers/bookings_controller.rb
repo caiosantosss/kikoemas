@@ -3,9 +3,9 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking)
     authorize @bookings
-    @new_bookings = current_user.bookings.where("student_read = ?", false)
-    @upcoming = current_user.bookings.where('start_time > ?', Time.now)
-    @past = current_user.bookings.where('start_time < ?', Time.now)
+    # @new_bookings = current_user.bookings.where("student_read = ?", false)
+    @upcoming = current_user.bookings.where('start_time > ?', Time.now).sort_by(&:start_time)
+    @past = current_user.bookings.where('start_time < ?', Time.now).sort_by(&:start_time).reverse
   end
 
   def show

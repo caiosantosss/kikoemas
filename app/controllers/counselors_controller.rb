@@ -16,8 +16,10 @@ class CounselorsController < ApplicationController
   end
 
   def bookings
-    @new_bookings = current_counselor.bookings.where("suggested = ?", false).where("emergency != ?", true).where("counselor_read = ?", false)
+    @new_bookings = current_counselor.bookings.where("suggested = ?", false).where(emergency: nil)
+                                     .where("counselor_read = ?", false).sort_by(&:start_time)
     @upcoming = current_counselor.bookings.where("suggested = ?", false).where('start_time > ?', Time.now)
+                                 .sort_by(&:start_time)
     @past = current_counselor.bookings.where('start_time < ?', Time.now)
     @past_students = @past.map { |booking| booking.user }.uniq
     @past_student_session = @past_students.map do |student|
