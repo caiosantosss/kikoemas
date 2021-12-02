@@ -56,6 +56,7 @@
     padding: 0px;
     p {
       margin: 5px 0px;
+      text-shadow: 0 0 1px rgb(99, 123, 179);
     }
   }
   .counselor_info {
@@ -97,8 +98,6 @@
   border-radius: 3px;
   color: white;
   margin-bottom: 10px;
-  .recent-button {
-  }
   .recent-session-info {
     width: 50%;
     text-align: left;
