@@ -32,6 +32,18 @@
   margin: 5px;
 }
 
+.description-sos {
+  background-image: linear-gradient(45deg, rgba(246, 148, 183, 1) 5%, #fa8480 69%, rgba(246, 148, 183, 1) 98%);
+  background-clip: text;
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  font-size: 14px;
+  margin: 5px;
+}
+
 .session-card {
   background-image: linear-gradient(45deg, #ad80fa 5%, #91b2fd 69%, #cdd0f6 98%);
   box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
