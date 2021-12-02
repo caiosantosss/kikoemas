@@ -16,3 +16,39 @@ $kikoe-pink: rgba(246, 148, 183, 1);
 $kikoe-lightblue: rgba(205, 208, 246, 1);
 $kikoe-green: rgb(131, 207, 218);
 $kikoe-red: rgb(226, 93, 93);
+
+
+// emotions
+.text-dark-sad{
+  color: $kikoe-pink;
+}
+.text-sad{
+  color: #FFAC81;
+}
+.text-neutral{
+  color: #EAF8BF;
+}
+.text-happy{
+  color:#ADFCF9;
+}
+.text-very-happy{
+  color: #ACF39D;
+}
+
+//background
+
+.bg-sad{
+ background-color: #cc5519;
+}
+.bg-very-sad{
+  background-color:rgb(243, 7, 46);
+}
+.bg-neutral{
+  background-color: #597506;
+}
+.bg-happy{
+  background-color: #017773;
+}
+.bg-very-happy{
+  background-color: #1f830b;
+}
