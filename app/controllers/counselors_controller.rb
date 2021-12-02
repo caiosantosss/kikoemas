@@ -1,5 +1,5 @@
 class CounselorsController < ApplicationController
-  after_action :set_as_read, only:[:bookings]
+  after_action :set_as_read, only: [:bookings]
   def dashboard
     @counselor = current_counselor
     @students = User.all
