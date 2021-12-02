@@ -5,7 +5,7 @@
   <% @daily_reports.where('date >= ? AND date <= ?', (Time.now - 1.week).at_beginning_of_week, (Time.now - 1.week).at_end_of_week).each do |report| %>
     <div class="date_set">
       <i class="<%=fontawesome(report.emotion)%>"></i>
-      <p><%= report.date.strftime('%a') %></p>
+      <p class ="days-purple"><%= report.date.strftime('%a') %></p>
     </div>
   <% end %>
 </div>
