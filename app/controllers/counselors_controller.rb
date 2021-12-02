@@ -16,7 +16,7 @@ class CounselorsController < ApplicationController
   end
 
   def bookings
-    @new_bookings = current_counselor.bookings.where("suggested = ?", false).where(emergency: nil)
+    @new_bookings = current_counselor.bookings.where('date >= ?', Date.today).where("suggested = ?", false).where(emergency: nil)
                                      .where("counselor_read = ?", false).sort_by(&:start_time)
     @upcoming = current_counselor.bookings.where("suggested = ?", false).where('start_time > ?', Time.now)
                                  .sort_by(&:start_time)

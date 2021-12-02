@@ -182,7 +182,8 @@ puts 'Finished the random users'
 puts 'Creating past bookings...'
 past_booking = Booking.new(
   start_time: Date.today - 1.month,
-  mode: 0
+  mode: 0,
+  in_session: false
 )
 past_booking.counselor = counselor1
 past_booking.user = user3

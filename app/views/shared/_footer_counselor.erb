@@ -8,7 +8,7 @@
     <%= link_to counselor_bookings_path do %>
       <i class="fas fa-clipboard-list"></i>
     <% end %>
-    <% count = current_counselor.bookings.where(emergency: nil).where('counselor_read = ?', false).count %>
+    <% count = current_counselor.bookings.where('date >= ?', Date.today).where(emergency: nil).where('counselor_read = ?', false).count %>
     <% if current_counselor && count > 0 %>
       <div class="notification badge badge-pill badge-warning"><%= count %></div>
     <% end %>

@@ -3,11 +3,15 @@
   <div class="body-frame">
     <%# Counselor, Time, Mode %>
     <div class="counselors-form mx-auto justify-content-center text-center">
-      <div>
-        <h2 class="book-a-session">Book a Session</h2>
+      <div class="book-a-session">
+        <h2>Book a Session</h2>
+      </div>
+      <div class="with-card mb-4">
+        <p>with <strong><%= @booking.counselor.full_name %></strong></p>
+        <%= cl_image_tag(@booking.counselor.photo.key, height: 100, width: 100, radius: 'max', title:@booking.counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img", background: "#f4f4f4")%>
       </div>
       <%= simple_form_for @booking do |f| %>
-        <%= f.association :counselor, label: 'Counselors', :required => false,
+        <%# f.association :counselor, label: 'Counselors', :required => false,
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
           collection_wrapper_class: 'category-wrapper d-flex justify-content-center',
@@ -15,22 +19,22 @@
           input_html: {class: 'category-selector'},
           collection:[[cl_image_tag(@booking.counselor.photo.key, height: 100, width: 100, radius: 'max', title:@booking.counselor.full_name, "data-toggle": "tooltip", class: "category-counselor-img", background: "#f4f4f4"), @booking.counselor.id]]
         %>
-        <div class='row text-center justify-content-center'>
-          <%= f.input :start_time, as: :string, label: 'Start Time', input_html: {class: "datepicker transparent-input"}%>
-          <%= f.input :mode, label: 'Mode', :required => false,
-          as: :radio_buttons,
-          collection_wrapper_tag: 'div',
-          collection_wrapper_class: 'category-wrapper d-flex justify-content-between',
-          item_wrapper_class: 'category-mode m-2',
-          input_html: {class: 'category-selector'},
-          collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
+      <%# <p class='description-white'>A counselor has been selected for you!</p> %>
+      <div class='second-form row text-center justify-content-center'>
+        <%= f.input :start_time, as: :string, label: 'Start Time', input_html: {class: "datepicker transparent-input"}%>
+        <%= f.input :mode, label: 'Mode', :required => false,
+        as: :radio_buttons,
+        collection_wrapper_tag: 'div',
+        collection_wrapper_class: 'category-wrapper d-flex justify-content-between',
+        item_wrapper_class: 'category-mode m-2',
+        input_html: {class: 'category-selector'},
+        collection: [['Chatroom', 0], ['Video Call', 1], ['In-person', 2]]
         %>
-          <%= f.hidden_field :in_session, value: false, as: :boolean %>
-          <%# f.hidden_field :emergency, value: false, as: :boolean %>
-        </div>
-        <div class="d-flex justify-content-center">
-          <%= f.button :submit, 'Submit', class: 'new-submit-btn' %>
-        </div>
+        <%= f.hidden_field :in_session, value: false, as: :boolean %>
+      </div>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, 'Submit', class: 'new-submit-btn' %>
+      </div>
       <% end %>
     </div>
   </div>
