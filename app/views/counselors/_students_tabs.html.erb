@@ -66,7 +66,7 @@
         <% end %>
         <div class="progress_chart">
           <% past_month_days = (Date.today - 1.month).day %>
-          <%= line_chart pair[0].daily_emotions.where('date >= ? AND date <= ?', (Date.today - 1.month).beginning_of_month, (Date.today - 1.month).end_of_month).group_by_week(:date).average(:emotion), height: '180px', width: '200px', colors:["rgb(131, 207, 218)"] %>
+          <%= line_chart pair[0].daily_emotions.where('date >= ? AND date <= ?', (Date.today - 3.month).beginning_of_month, (Date.today - 1.month).end_of_month).group_by_week(:date).average(:emotion).map{|key, value| ["#{key.month}/#{key.day}~#{key.end_of_week.month}/#{key.end_of_week.day}", value.round(2)]}.to_h, height: '180px', width: '200px', colors:["rgb(131, 207, 218)"] %>
         </div>
       </div>
     <% end %>
