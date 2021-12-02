@@ -17,7 +17,7 @@
         %>
         <div class='row text-center justify-content-center'>
           <%# Problem: flatpckr not working properly when screen size changes %>
-          <%= f.input :start_time, as: :string, label: 'Start Time', input_html: { class: "datepicker m-1 transparent-input" }%>
+          <%= f.input :start_time, as: :string, label: 'Start Time', input_html: { class: "datepicker transparent-input" }%>
           <%= f.input :mode, label: 'Mode',:required => false,
           as: :radio_buttons,
           collection_wrapper_tag: 'div',
