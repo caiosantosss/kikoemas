@@ -1,30 +1,36 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%#= link_to "Kikoe+", root_path, class: "navbar-brand" %>
-  <div class='navbar-brand'>Kikoe+</div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? || counselor_signed_in? %>
+  <% if user_signed_in? || counselor_signed_in? %>
+    <div class='navbar-brand mr-auto p-2'>Kikoe+</div>
+    <% user = current_user ? current_user : current_counselor %>
+    <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle mr-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <button class="navbar-toggler p-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <% user = current_user ? current_user : current_counselor %>
-          <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%#= link_to "Action", "#", class: "dropdown-item" %>
-            <%#= link_to "Another action", "#", class: "dropdown-item" %>
-            <% logout_path = current_user ? destroy_user_session_path : destroy_counselor_session_path  %>
-            <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item" %>
-          </div>
+          <%#= link_to "Action", "#", class: "dropdown-item" %>
+          <%#= link_to "Another action", "#", class: "dropdown-item" %>
+          <% logout_path = current_user ? destroy_user_session_path : destroy_counselor_session_path  %>
+          <%= link_to "Log out", logout_path, method: :delete, class: "dropdown-item d-flex justify-content-end nav-link" %>
         </li>
-      <% else %>
+      </ul>
+    </div>
+  <% else %>
+    <div class='navbar-brand'>Kikoe+</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <%= link_to "Login as student", new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Login as counselor", new_counselor_session_path, class: "nav-link" %>
         </li>
-      <% end %>
-    </ul>
-  </div>
+      </ul>
+    </div>
+  <% end %>
 </div>
