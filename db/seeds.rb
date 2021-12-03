@@ -44,9 +44,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/76512208?v=4")
 user1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user2 = User.create!(
-  first_name: "Karen",
+  first_name: "Ayano",
   last_name: 'Fujibayashi',
-  email: 'karen@lewagon.jp',
+  email: 'ayano@lewagon.jp',
   phone_number: '080 12344321',
   address: '387-1223, Ichigayakoracho, Shinjuku-ku, Tokyo',
   password: '123456',
@@ -55,13 +55,13 @@ user2 = User.create!(
   classroom: 'B'
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
+file = URI.open("https://thumb.photo-ac.com/8a/8a9e2e2122a4859d42bdf7be3b5457e1_w.jpeg")
 user2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user3 = User.create!(
-  first_name: "Caio",
-  last_name: 'Santos',
-  email: 'caio@lewagon.jp',
+  first_name: "Takumi",
+  last_name: 'Kobayashi',
+  email: 'takumi@lewagon.jp',
   phone_number: '080 99991111',
   address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
   password: '123456',
@@ -69,8 +69,64 @@ user3 = User.create!(
   grade: 1,
   classroom: 'C'
 )
-file = URI.open("https://avatars.githubusercontent.com/u/87355777?v=4")
+file = URI.open("https://thumb.photo-ac.com/cb/cbf5e1ebd7b3c28167fd3c67f8b5b3b0_w.jpeg")
 user3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+user4 = User.create!(
+  first_name: "Reiko",
+  last_name: 'Ikeda',
+  email: 'reiko@lewagon.jp',
+  phone_number: '080 99991111',
+  address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
+  password: '123456',
+  school: school1,
+  grade: 1,
+  classroom: 'C'
+)
+file = URI.open("https://images.unsplash.com/photo-1475823678248-624fc6f85785?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80")
+user4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+user5 = User.create!(
+  first_name: "Mika",
+  last_name: 'Toyoda',
+  email: 'mika@lewagon.jp',
+  phone_number: '080 99991111',
+  address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
+  password: '123456',
+  school: school1,
+  grade: 1,
+  classroom: 'C'
+)
+file = URI.open("https://thumb.photo-ac.com/8f/8f47b167679a8e0a0d6b73487b966349_w.jpeg")
+user5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+user6 = User.create!(
+  first_name: "Kiyoko",
+  last_name: 'Yoshida',
+  email: 'kiyoko@lewagon.jp',
+  phone_number: '080 99991111',
+  address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
+  password: '123456',
+  school: school1,
+  grade: 1,
+  classroom: 'C'
+)
+file = URI.open("https://thumb.photo-ac.com/65/6535dfa6eb56896a47c62066d01d8744_w.jpeg")
+user6.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
+
+user7 = User.create!(
+  first_name: "Saitama",
+  last_name: 'Suzuki',
+  email: 'saitama@lewagon.jp',
+  phone_number: '080 99991111',
+  address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
+  password: '123456',
+  school: school1,
+  grade: 1,
+  classroom: 'C'
+)
+file = URI.open("https://thumb.photo-ac.com/14/14e6784a30a1089f3dd90cb3a096f7d5_w.jpeg")
+user7.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Users created'
 puts 'Creating Counselors........'
@@ -87,48 +143,39 @@ file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
 counselor1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor2 = Counselor.create!(
-  first_name: "Doug",
-  last_name: 'Berkley',
-  email: 'doug@lewagon.jp',
+  first_name: "Miho",
+  last_name: 'Hirata',
+  email: 'miho@lewagon.jp',
   password: '123456',
   school: school1
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
+file = URI.open("https://media.istockphoto.com/photos/portrait-business-woman-asian-on-blue-background-picture-id1166423321")
 counselor2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor3 = Counselor.create!(
-  first_name: "Trouni",
-  last_name: 'Tiet',
-  email: 'trouni@lewagon.jp',
+  first_name: "Shigeo",
+  last_name: 'Watanabe',
+  email: 'shigeo@lewagon.jp',
   password: '123456',
   school: school1
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/34345789?v=4")
+file = URI.open("https://media.istockphoto.com/photos/portrait-of-asian-businesswoman-isolated-on-white-background-picture-id872694342")
 counselor3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor4 = Counselor.create!(
-  first_name: "Yann",
-  last_name: 'Klein',
-  email: 'yann@lewagon.jp',
+  first_name: "Kumiko",
+  last_name: 'Ichikawa',
+  email: 'kumiko@lewagon.jp',
   password: '123456',
   school: school1
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/26819547?v=4")
+file = URI.open("https://media.istockphoto.com/photos/cheerful-businesswoman-in-her-30s-with-paperwork-picture-id1222731173")
 counselor4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
-counselor5 = Counselor.create!(
-  first_name: "Derek",
-  last_name: 'Torres',
-  email: 'derek@lewagon.jp',
-  password: '123456',
-  school: school1
-)
 
-file = URI.open("https://avatars.githubusercontent.com/u/77267436?v=4")
-counselor5.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 puts 'Counselors created'
 
@@ -190,7 +237,7 @@ past_booking.user = user3
 past_booking.save!
 puts 'Finished creating past booking'
 
-puts 'Creating daily emotions...'
+puts 'Creating daily emotions 1'
 
 # rando_students.each do |user|
 #   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
@@ -213,7 +260,8 @@ puts 'Creating daily emotions...'
     daily_report.save!
   end
 end
-puts 'Creating daily emotions for Karen'
+
+puts 'Creating daily emotions 2'
 
 ((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
   daily_report = DailyEmotion.new(
