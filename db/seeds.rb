@@ -350,17 +350,64 @@ end
 
 puts 'Creating daily emotions for Ryota'
 
-((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
-  daily_report = DailyEmotion.new(
+# ((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
+#   daily_report = DailyEmotion.new(
+#     date: date,
+#     emotion: rand(5)
+#   )
+#   daily_report.user = user1
+#   daily_report.save!
+# end
+
+# sep
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
     date: date,
-    emotion: rand(5)
+    emotion: (rand(0..9) == 0 ? 2 : rand(0..1))
   )
-  daily_report.user = user1
-  daily_report.save!
+  daily_report_student4.user = user1
+  daily_report_student4.save!
+end
+# oct
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..3) : rand(0..1))
+  )
+  daily_report_student4.user = user1
+  daily_report_student4.save!
+end
+# nov (until 11/21)
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date - 8.days)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student4.user = user1
+  daily_report_student4.save!
 end
 
-# puts 'Deleting 4 last days to Ryota Daily emotions'
+# dec
+# ((Date.today.beginning_of_month)...(Date.today)).each do |date|
+#   daily_report_student4 = DailyEmotion.new(
+#     date: date,
+#     emotion: rand(3..4)
+#   )
+#   daily_report_student4.user = user1
+#   daily_report_student4.save!
+# end
 
+# 11/29 ~ 12/2
+# (((Date.today - 1.week).end_of_week + 1.day) .. (Date.today - 1.day)).each do |date|
+#   daily_report_ryota = DailyEmotion.new(
+#     date: date,
+#     emotion: rand(0..1)
+#   )
+#   daily_report_ryota.user = user1
+#   daily_report_ryota.save!
+# end
+
+# ryota for the past week (11/22 ~ 11/28)
 daily_report = DailyEmotion.new(
   date: (Date.today - 1.week).beginning_of_week,
   emotion: 2
@@ -384,18 +431,18 @@ daily_report.save!
   daily_report_ryota.save!
 end
 
-(((Date.today - 1.week).end_of_week + 1.day) .. (Date.today - 1.day)).each do |date|
-  daily_report_ryota = DailyEmotion.new(
+# dec (12/1 ~ 12/2)
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
     date: date,
-    emotion: rand(1..2)
+    emotion: 0
   )
-  daily_report_ryota.user = user1
-  daily_report_ryota.save!
+  daily_report_student4.user = user1
+  daily_report_student4.save!
 end
 
-
 puts 'Creating emotions to other users......'
-
+# sep
 ((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
@@ -404,7 +451,7 @@ puts 'Creating emotions to other users......'
   daily_report_student4.user = user4
   daily_report_student4.save!
 end
-
+# oct
 ((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
@@ -413,7 +460,7 @@ end
   daily_report_student4.user = user4
   daily_report_student4.save!
 end
-
+# nov
 ((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
@@ -422,7 +469,7 @@ end
   daily_report_student4.user = user4
   daily_report_student4.save!
 end
-
+# dec
 ((Date.today.beginning_of_month)...(Date.today)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
