@@ -417,16 +417,16 @@ end
 ((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
-    emotion: (rand(0..9) > 2 ? rand(2..4) : rand(0..1))
+    emotion: rand(3..4)
   )
   daily_report_student4.user = user4
   daily_report_student4.save!
 end
 
-((Date.today.beginning_of_month)...(Date.today.end_of_month)).each do |date|
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
   daily_report_student4 = DailyEmotion.new(
     date: date,
-    emotion: rand(4..5)
+    emotion: rand(3..4)
   )
   daily_report_student4.user = user4
   daily_report_student4.save!
@@ -455,16 +455,16 @@ end
 ((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student5 = DailyEmotion.new(
     date: date,
-    emotion: (rand(0..9) > 2 ? rand(2..4) : rand(0..1))
+    emotion: rand(3..4)
   )
   daily_report_student5.user = user5
   daily_report_student5.save!
 end
 
-((Date.today.beginning_of_month)...(Date.today.end_of_month)).each do |date|
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
   daily_report_student5 = DailyEmotion.new(
     date: date,
-    emotion: rand(4..5)
+    emotion: rand(3..4)
   )
   daily_report_student5.user = user5
   daily_report_student5.save!
@@ -493,19 +493,57 @@ end
 ((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
   daily_report_student6 = DailyEmotion.new(
     date: date,
-    emotion: (rand(0..9) > 2 ? rand(2..4) : rand(0..1))
+    emotion: rand(3..4)
   )
   daily_report_student6.user = user6
   daily_report_student6.save!
 end
 
-((Date.today.beginning_of_month)...(Date.today.end_of_month)).each do |date|
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
   daily_report_student6 = DailyEmotion.new(
     date: date,
-    emotion: rand(4..5)
+    emotion: rand(3..4)
   )
   daily_report_student6.user = user6
   daily_report_student6.save!
+end
+
+puts 'Creating emotions to students 7'
+
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) == 0 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
 end
 
 # daily_report_ryota = DailyEmotion.new(
