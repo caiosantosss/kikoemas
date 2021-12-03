@@ -161,7 +161,7 @@ counselor3 = Counselor.create!(
   school: school1
 )
 
-file = URI.open("https://media.istockphoto.com/photos/portrait-of-asian-businesswoman-isolated-on-white-background-picture-id872694342")
+file = URI.open("https://thumb.photo-ac.com/01/01da609ba7890d445f1310f9b7f070d0_w.jpeg")
 counselor3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor4 = Counselor.create!(
@@ -227,14 +227,51 @@ puts 'Creating random students'
 puts 'Finished the random users'
 
 puts 'Creating past bookings...'
-past_booking = Booking.new(
+past_booking1 = Booking.new(
   start_time: Date.today - 1.month,
   mode: 0,
   in_session: false
 )
-past_booking.counselor = counselor1
-past_booking.user = user3
-past_booking.save!
+past_booking1.counselor = counselor1
+past_booking1.user = user1
+past_booking1.save!
+
+past_booking2 = Booking.new(
+  start_time: Date.today - 1.month,
+  mode: 0,
+  in_session: false
+)
+past_booking2.counselor = counselor1
+past_booking2.user = user4
+past_booking2.save!
+
+past_booking3 = Booking.new(
+  start_time: Date.today - 1.month,
+  mode: 0,
+  in_session: false
+)
+past_booking3.counselor = counselor1
+past_booking3.user = user5
+past_booking3.save!
+
+past_booking4 = Booking.new(
+  start_time: Date.today - 1.month,
+  mode: 0,
+  in_session: false
+)
+past_booking4.counselor = counselor1
+past_booking4.user = user6
+past_booking4.save!
+
+past_booking5 = Booking.new(
+  start_time: Date.today - 1.month,
+  mode: 0,
+  in_session: false
+)
+past_booking5.counselor = counselor1
+past_booking5.user = user7
+past_booking5.save!
+
 puts 'Finished creating past booking'
 
 puts 'Creating daily emotions 1'
@@ -354,6 +391,159 @@ end
   )
   daily_report_ryota.user = user1
   daily_report_ryota.save!
+end
+
+
+puts 'Creating emotions to other users......'
+
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) == 0 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student4.user = user4
+  daily_report_student4.save!
+end
+
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student4.user = user4
+  daily_report_student4.save!
+end
+
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student4.user = user4
+  daily_report_student4.save!
+end
+
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student4 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student4.user = user4
+  daily_report_student4.save!
+end
+
+puts 'Creating emotions with student5'
+
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student5 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) == 0 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student5.user = user5
+  daily_report_student5.save!
+end
+
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student5 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student5.user = user5
+  daily_report_student5.save!
+end
+
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student5 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student5.user = user5
+  daily_report_student5.save!
+end
+
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student5 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student5.user = user5
+  daily_report_student5.save!
+end
+
+puts 'Creating new daily students emotions students6'
+
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student6 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) == 0 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student6.user = user6
+  daily_report_student6.save!
+end
+
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student6 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student6.user = user6
+  daily_report_student6.save!
+end
+
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student6 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student6.user = user6
+  daily_report_student6.save!
+end
+
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student6 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student6.user = user6
+  daily_report_student6.save!
+end
+
+puts 'Creating emotions to students 7'
+
+((3.months.ago.beginning_of_month.to_date)..(3.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) == 0 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((2.months.ago.beginning_of_month.to_date)...(2.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: (rand(0..9) < 5 ? rand(2..4) : rand(0..1))
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((1.months.ago.beginning_of_month.to_date)...(1.months.ago.end_of_month.to_date)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
+end
+
+((Date.today.beginning_of_month)...(Date.today)).each do |date|
+  daily_report_student7 = DailyEmotion.new(
+    date: date,
+    emotion: rand(3..4)
+  )
+  daily_report_student7.user = user7
+  daily_report_student7.save!
 end
 
 # daily_report_ryota = DailyEmotion.new(
