@@ -237,7 +237,7 @@ past_booking.user = user3
 past_booking.save!
 puts 'Finished creating past booking'
 
-puts 'Creating daily emotions...'
+puts 'Creating daily emotions 1'
 
 # rando_students.each do |user|
 #   ((Date.today - 2.month).beginning_of_month..(Date.today)).each do |date|
@@ -260,7 +260,8 @@ puts 'Creating daily emotions...'
     daily_report.save!
   end
 end
-puts 'Creating daily emotions for Karen'
+
+puts 'Creating daily emotions 2'
 
 ((Date.today - 2.month).beginning_of_month...(Date.today - 1.week).beginning_of_week).each do |date|
   daily_report = DailyEmotion.new(
