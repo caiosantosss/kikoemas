@@ -44,9 +44,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/76512208?v=4")
 user1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user2 = User.create!(
-  first_name: "Karen",
+  first_name: "Ayano",
   last_name: 'Fujibayashi',
-  email: 'karen@lewagon.jp',
+  email: 'ayano@lewagon.jp',
   phone_number: '080 12344321',
   address: '387-1223, Ichigayakoracho, Shinjuku-ku, Tokyo',
   password: '123456',
@@ -55,13 +55,13 @@ user2 = User.create!(
   classroom: 'B'
 )
 
-file = URI.open("https://avatars.githubusercontent.com/u/81273911?v=4")
+file = URI.open("https://thumb.photo-ac.com/8a/8a9e2e2122a4859d42bdf7be3b5457e1_w.jpeg")
 user2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 user3 = User.create!(
-  first_name: "Caio",
-  last_name: 'Santos',
-  email: 'caio@lewagon.jp',
+  first_name: "Takumi",
+  last_name: 'Kobayashi',
+  email: 'takumi@lewagon.jp',
   phone_number: '080 99991111',
   address: '57-14, Mejiro 2-chome, Toshima-ku, Tokyo',
   password: '123456',
@@ -87,9 +87,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/78392794?v=4")
 counselor1.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor2 = Counselor.create!(
-  first_name: "Doug",
-  last_name: 'Berkley',
-  email: 'doug@lewagon.jp',
+  first_name: "Miho",
+  last_name: 'Hirata',
+  email: 'miho@lewagon.jp',
   password: '123456',
   school: school1
 )
@@ -98,9 +98,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/25542223?v=4")
 counselor2.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor3 = Counselor.create!(
-  first_name: "Trouni",
-  last_name: 'Tiet',
-  email: 'trouni@lewagon.jp',
+  first_name: "Shigeo",
+  last_name: 'Watanabe',
+  email: 'shigeo@lewagon.jp',
   password: '123456',
   school: school1
 )
@@ -109,9 +109,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/34345789?v=4")
 counselor3.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor4 = Counselor.create!(
-  first_name: "Yann",
-  last_name: 'Klein',
-  email: 'yann@lewagon.jp',
+  first_name: "Kumiko",
+  last_name: 'Ichikawa',
+  email: 'kumiko@lewagon.jp',
   password: '123456',
   school: school1
 )
@@ -120,9 +120,9 @@ file = URI.open("https://avatars.githubusercontent.com/u/26819547?v=4")
 counselor4.photo.attach(io: file, filename: 'item.png', content_type: 'image/png')
 
 counselor5 = Counselor.create!(
-  first_name: "Derek",
-  last_name: 'Torres',
-  email: 'derek@lewagon.jp',
+  first_name: "Sana",
+  last_name: 'Hashimoto',
+  email: 'sana@lewagon.jp',
   password: '123456',
   school: school1
 )

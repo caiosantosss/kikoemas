@@ -3,7 +3,7 @@
   <% if user_signed_in? || counselor_signed_in? %>
     <div class='navbar-brand mr-auto p-2'>Kikoe+</div>
     <% user = current_user ? current_user : current_counselor %>
-    <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle mr-2", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <%= cl_image_tag user.photo.key, class: "avatar dropdown-toggle mr-2", height: 40, width: 40, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <button class="navbar-toggler p-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
