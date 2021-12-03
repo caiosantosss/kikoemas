@@ -5,7 +5,7 @@ class Counselor < ApplicationRecord
   has_one_attached :photo
   has_many :messages, as: :sender
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable, #remove before demo day
+  devise :database_authenticatable, #:registerable, #remove before demo day
          :recoverable, :rememberable, :validatable
 
   def full_name
