@@ -52,7 +52,7 @@ rails s
 ## Team Members
 - Ryota Enoki
 - Vivian Bao
-- Caio Snatos
+- Caio Santos
 - Karen Fujibayashi
 
 ## Contributing
