@@ -14,35 +14,43 @@
     }
   }
   .second-form {
+
     .col-form-label {
       margin: 5px auto;
       padding: 0px;
       text-shadow: 0 0 1px rgb(99, 123, 179);
     }
+
     label.string.optional{
       margin-bottom: 0;
       text-shadow: 0 0 1px rgb(99, 123, 179);
     }
+
     input {
       margin: 10px auto;
     }
+
     .form-check-label {
       padding: 10px;
       font-size: 14px;
       box-shadow: 0 0 5px rgb(180, 199, 243);
     }
+
     .form-check-input.is-valid ~ .form-check-label {
-    transition-duration: 0.4s;
-    color: white;
-    background: $kikoe-blue;
-    box-shadow: 0 0 5px rgb(180, 199, 243);
-    border-radius: 3px;
+      transition-duration: 0.4s;
+      color: white;
+      background: $kikoe-blue;
+      box-shadow: 0 0 5px rgb(180, 199, 243);
+      border-radius: 3px;
     }
+
     .form-check-input.is-valid ~ .form-check-label:hover {
       background-color: #ad80fa;
       color: white;
+      box-shadow: 0 0 10px rgb(255, 255, 255);
     }
   }
+
   .book-a-session{
     h2 {
       font-family:Helvetica,Arial,sans-serif;
@@ -62,6 +70,7 @@
       text-shadow: 0 0 1px rgb(99, 123, 179);
     }
   }
+
   .category-wrapper {
     display: flex;
     // justify-content: space-between;
@@ -88,6 +97,7 @@
     border-radius: 4px;
     color: white;
   }
+
   label{
     font-weight: 600;
     color: white;
@@ -96,32 +106,40 @@
   .category-counselor-img {
     object-fit: cover;
     border-radius: 50%;
+    opacity: 0.7 !important;
   }
 
   .category-counselor-img.selected {
     transition: .5s;
-    box-shadow: 0 0 16px rgba(0,0,0,1);
+    // box-shadow: 0 0 16px rgba(0,0,0,1);
   }
 
   .col-form-label {
     font-weight: 600;
     color: white;
   }
+
   .category-selector:checked + label {
-    color: $kikoe-pink !important;
-    opacity: 0.7 !important;
-    box-shadow:
-    inset 0 -3em 3em rgba(185, 7, 7, 0.1),
-    0 0  0 2px $kikoe-blue,
+    // color: $kikoe-pink !important;
+    // opacity: 0.7 !important;
+    // box-shadow:
+    // inset 0 -3em 3em rgba(185, 7, 7, 0.1),
+    // 0 0  0 2px $kikoe-blue,
+    img {
+      opacity: 1 !important;
+      box-shadow: 0 0 20px rgba(246, 148, 183, 1);
+    }
   }
+
   .new-submit-btn{
     transition-duration: 0.4s;
     background-color: $kikoe-pink;
     border-radius: 4px;
     color: white;
-    margin-top: 15px;
+    margin-top: 30px;
     box-shadow: 0 0 5px rgb(180, 199, 243);
   }
+
   .new-submit-btn:hover{
     background-color: #ad80fa;
     color: white;
