@@ -1,10 +1,11 @@
 # Kikoe+
 
 Helping Japanese high school students have a better school life.  
+![Screen Shot 2021-12-09 at 15 46 46](https://user-images.githubusercontent.com/76512208/145347580-aca7fc4d-48f3-44ca-8471-853b9e1e2832.png)
 
 
 <br>
-App home: https://WHATEVER.herokuapp.com
+App home: https://www.kikoemas.com
    
 
 ## Getting Started
