@@ -1,15 +1,45 @@
 .login-color{
+  font-size: 25px;
+  font-weight: lighter;
   height: 100vh;
-   color: $kikoe-white;
-   background-image: linear-gradient(45deg, rgba(246, 148, 183, 1) 5%, $kikoe-purple 69%, rgba(246, 148, 183, 1) 98%);
+  color: white;
+  background: linear-gradient(180deg, rgba(255,157,253,1) 0%, rgba(255,155,245,0.888874299719888) 6%, rgba(255,255,255,1) 100%);
 }
-// .title-color{
-//   color: $kikoe-white;
-// }
+
+
+label.form-check-label.boolean.optional {
+  font-size: 15px;
+  position: relative;
+  top: -3px;
+}
+
+.form-check {
+  padding-left: 0px !important;
+}
+
+input#user_remember_me {
+  position: relative;
+  top: -3px;
+  font-size: 10px;
+  margin: 5px;
+}
+
 .inputs-label{
   margin: 0%;
+  margin: 30px;
 }
 .login-btn{
   border-radius: 4px;
   color: $kikoe-white;
+  margin: 30px;
+  font-size: 25px;
+}
+
+.forgot {
+  position: relative;
+  top: -184px;
+  left: 204px;
+  font-size: 10px;
+  color: rgb(27, 69, 193);
+  text-shadow: none !important;
 }
