@@ -5,7 +5,7 @@ Helping Japanese high school students have a better school life.
 
 
 <br>
-App home: https://www.kikoemas.com
+App home: https://kikoemas.herokuapp.com/
    
 
 ## Getting Started
